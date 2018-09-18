@@ -85,14 +85,14 @@
 }
 </style>
 <body>
-	<a href="<?php echo base_url('children_controller/index'); ?>" class="btn btn-primary">Back</a>
+	<a href="<?php echo base_url('children/index'); ?>" class="btn btn-primary">Back</a>
 	<div class="p1"><p>Baptismal Records</p></div>
 <div class="pos">
 	<div class="dropdown"><br>
   <div class="members_record"><button class="btn btn-primary">BAPTISMAL RECORDS</button></div>
   <div class="dropdown-content">
-    <a href="<?php echo base_url('child_search_controller/index'); ?>">MEMBERS IN BAPTISMAL CLASS</a>
-    <a href="<?php echo base_url('child_searchM_controller/index'); ?>">BAPTIZED MEMBERS</a>
+    <a href="<?php echo base_url('childrenSearch/index'); ?>">MEMBERS IN BAPTISMAL CLASS</a>
+    <a href="<?php echo base_url('childrenSearchM/index'); ?>">BAPTIZED MEMBERS</a>
   </div>
 </div><br>
 </div>

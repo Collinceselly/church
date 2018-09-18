@@ -16,7 +16,7 @@
 
 </style>
 <body>
-<div class="p1"><a href="<?php echo base_url('finance/givings_controller/getMembers'); ?>" class="btn btn-primary">Record members' givings for a given Sabbath </a></div>
+<div class="p1"><a href="<?php echo base_url('finance/givings/getMembers'); ?>" class="btn btn-primary">Record members' givings for a given Sabbath </a></div>
 
 </body>
 </html>

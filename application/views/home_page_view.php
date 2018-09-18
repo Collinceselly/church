@@ -189,24 +189,24 @@ div.slide{
 			<div class="modules"> 
 				<div class="module_content">
 					
-<a href="<?php echo base_url('home_page_controller'); ?>" class="btn btn-primary">HOME</a>
-<a href="<?php echo base_url('trial_controller/add'); ?>" class="btn btn-primary">ABOUT US</a>
+<a href="<?php echo base_url('HomePage'); ?>" class="btn btn-primary">HOME</a>
+<a href="<?php echo base_url('TrialController/add'); ?>" class="btn btn-primary">ABOUT US</a>
 <div class="dropdown">
   <button class="btn btn-primary">SERVICES</button>
   <div class="dropdown-content">
-    <a href="login_controller/process_login">CHURCH CLERK</a>
-    <a href="login_controller/process_login">TREASURY/FINANCE DEPARTMENT</a>
-    <a href="login_controller/process_login">PASTORS OFFICE</a>
-    <a href="login_controller/process_login">TRAINING DEPARTMENT</a>
-    <a href="login_controller/process_login">SOCIAL COMMITTEE</a>
-    <a href="login_controller/process_login">PERSONAL MINISTRY</a>
+    <a href="Login/process_login">CHURCH CLERK</a>
+    <a href="Login/process_login">TREASURY/FINANCE DEPARTMENT</a>
+    <a href="Login/process_login">PASTORS OFFICE</a>
+    <a href="Login/process_login">TRAINING DEPARTMENT</a>
+    <a href="Login/process_login">SOCIAL COMMITTEE</a>
+    <a href="Login/process_login">PERSONAL MINISTRY</a>
     <a href="#">CHURCH MEMBERS</a>
   </div>
 </div>
-<a href="<?php echo base_url('trial_controller/add'); ?>" class="btn btn-primary">PRODUCTS</a>
-<a href="<?php echo base_url('trial_controller/add'); ?>" class="btn btn-primary">PROJECTS</a>
-<a href="<?php echo base_url('trial_controller/add'); ?>" class="btn btn-primary">GALLERY</a>
-<a href="<?php echo base_url('trial_controller/add'); ?>" class="btn btn-primary">CONTACT US</a>
+<a href="<?php echo base_url('Trial/add'); ?>" class="btn btn-primary">PRODUCTS</a>
+<a href="<?php echo base_url('Trial/add'); ?>" class="btn btn-primary">PROJECTS</a>
+<a href="<?php echo base_url('Trial/add'); ?>" class="btn btn-primary">GALLERY</a>
+<a href="<?php echo base_url('Trial/add'); ?>" class="btn btn-primary">CONTACT US</a>
 				</div>
 			</div>
 		</div>

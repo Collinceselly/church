@@ -24,8 +24,8 @@
 	 <?php
 	}
 	?>
-	<a href="<?php echo base_url('baptismal_records_controller/index'); ?>" class="btn btn-primary">Back</a>
-	<a href="<?php echo base_url('baptismal_records_controller/add'); ?>" class="btn btn-primary">Add</a>
+	<a href="<?php echo base_url('baptismalRecords/index'); ?>" class="btn btn-primary">Back</a>
+	<a href="<?php echo base_url('baptismalRecords/add'); ?>" class="btn btn-primary">Add</a>
 	
 	<!--<div class="search_button"><a href="<?php echo base_url('search_c_controller/index'); ?>" class="btn btn-primary">Search a child</a></div>-->
 	<table class="table table-striped table-hover table-responsive table-condensed">
@@ -60,9 +60,9 @@
 				<td><?php echo $member->EMAIL_ADDRESS; ?></td>
 				<td><?php echo $member->RESIDENCE; ?></td>
 				<td>
-					<a href="<?php echo base_url('baptismal_records_controller/edit/'.$member->ID); ?>" class="btn btn-info">Edit</a>
-					<a href="<?php echo base_url('baptismal_records_controller/approve/'.$member->ID) ?>" class="btn btn-info"">Approve</a>
-					<a href="<?php echo base_url('baptismal_records_controller/delete/'.$member->ID) ?>" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this record?');">Delete</a>
+					<a href="<?php echo base_url('baptismalRecords/edit/'.$member->ID); ?>" class="btn btn-info">Edit</a>
+					<a href="<?php echo base_url('baptismalRecords/approve/'.$member->ID) ?>" class="btn btn-info"">Approve</a>
+					<a href="<?php echo base_url('baptismalRecords/delete/'.$member->ID) ?>" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this record?');">Delete</a>
 				</td>
 			</tr>
 			<?php

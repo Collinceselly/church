@@ -11,7 +11,7 @@
 
 	<h1>Register Members</h1>
 
-	<!--<form action="<?php echo base_url()."church_clerk_controller/RegisterMembers"?> method="post">-->
+	<!--<form action="<?php echo base_url()."churchclerk/RegisterMembers"?> method="post">-->
 		<?php echo form_open('church_clerk_controller/RegisterMembers'); ?>
 		<div class="form-group custom-bottom-margin">
 					<label class="control-label col-sm-4 text-right" for="name">Id Number</label>

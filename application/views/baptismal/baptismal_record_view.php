@@ -85,14 +85,14 @@
 }
 </style>
 <body>
-	<a href="<?php echo base_url('modules/clerk_controller/index'); ?>" class="btn btn-primary">Back</a>
+	<a href="<?php echo base_url('modules/clerk/index'); ?>" class="btn btn-primary">Back</a>
 	<div class="p1"><p>Baptismal Records</p></div>
 <div class="pos">
 	<div class="dropdown"><br>
   <div class="members_record"><button class="btn btn-primary">BAPTISMAL RECORDS</button></div>
   <div class="dropdown-content">
-    <a href="<?php echo base_url('baptismal_records_controller/class'); ?>">MEMBERS IN BAPTISMAL CLASS</a>
-    <a href="<?php echo base_url('baptismal_records_controller/viewApproved'); ?>">BAPTIZED MEMBERS</a>
+    <a href="<?php echo base_url('baptismalRecords/class'); ?>">MEMBERS IN BAPTISMAL CLASS</a>
+    <a href="<?php echo base_url('baptismalRecords/viewApproved'); ?>">BAPTIZED MEMBERS</a>
   </div>
 </div><br>
 </div>

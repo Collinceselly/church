@@ -1,6 +1,6 @@
 <?php
 
-class Insert_ctrl extends CI_Controller {
+class InsertCtrl extends CI_Controller {
 
 function __construct() {
 parent::__construct();

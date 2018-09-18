@@ -1,7 +1,7 @@
 <h3>Add Members</h3>
-<a href="<?php echo base_url('trial_controller/index'); ?>" class="btn btn-primary">Back</a>
+<a href="<?php echo base_url('trial/index'); ?>" class="btn btn-primary">Back</a>
 <div class ="form_content">
-<form action="<?php echo base_url('baptismal_records_controller/submit') ?>" method="post" class="form-horizontal">
+<form action="<?php echo base_url('baptismalRecords/submit') ?>" method="post" class="form-horizontal">
 	<div class ="form-group">
 		<!--<label for="idno" class="class-md-2 text-right">ID Card Number</label>
 		<div class="col-md-3">

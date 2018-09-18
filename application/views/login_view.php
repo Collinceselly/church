@@ -42,7 +42,7 @@ div.log1{
 </style>
 <body>
 
-<?php echo form_open('login_controller/process_login'); ?>
+<?php echo form_open('Login/process_login'); ?>
 <div class="log1">
 
 <div class="log2">ID CARD NUMBER: <input type="text" placeholder="Enter ID Card Number" name="username" required></div>
@@ -199,9 +199,9 @@ span.psw {
 <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
 
 <div id="id01" class="modal">
-	<!--<?php echo form_open('login_controller/process_login'); ?>
+	<!--<?php echo form_open('LoginController/process_login'); ?>
   
-  <form class="modal-content animate" <?php echo form_open('login_controller/process_login'); ?>>
+  <form class="modal-content animate" <?php echo form_open('LoginController/process_login'); ?>>
     <div class="imgcontainer">
       <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
       <img src="assets/images/log.jpg" alt="Avatar" class="avatar">

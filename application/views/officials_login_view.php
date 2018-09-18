@@ -118,7 +118,7 @@ echo "</div>";
 <div id="login">
 <h2>Login Form</h2>
 <hr/>
-<?php echo form_open('officials_login_controller/user_login'); ?>
+<?php echo form_open('OfficialsLogin/user_login'); ?>
 <?php
 echo "<div class='error_msg'>";
 if (isset($error_message)) {
@@ -143,7 +143,7 @@ echo "</div>";
 <label>Password :</label>
 <input type="password" name="password" id="password" placeholder="**********"/><br/><br />
 <input type="submit" value=" Login " name="submit"/><br />
-<a href="<?php echo base_url() ?>officials_login_controller/user_registration_show">To SignUp Click Here</a>
+<a href="<?php echo base_url() ?>OfficialsLogin/user_registration_show">To SignUp Click Here</a>
 <?php echo form_close(); ?>
 </div>
 </div>

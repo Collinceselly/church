@@ -3,8 +3,8 @@
 	<script src="http://code.jquery.com/jquery-1.12.4.js" ></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.13.4/jquery.mask.min.js"></script>
 <body>
-<a href="<?php echo base_url('children_controller/index'); ?>" class="btn btn-primary">Back</a>
-<form action="<?php echo base_url('finance/givings_controller/submitRecord') ?>" method="post" id="givings" class="form-horizontal">
+<a href="<?php echo base_url('children/index'); ?>" class="btn btn-primary">Back</a>
+<form action="<?php echo base_url('finance/givings/submitRecord') ?>" method="post" id="givings" class="form-horizontal">
 	<input type="hidden" name="text_hidden" value="<?php echo $members->ID;?>" >
 	
 	

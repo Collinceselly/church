@@ -64,7 +64,7 @@ background:linear-gradient(#36caf0 5%,#22abe9 100%)
 <body>
 
 <div id="container">
-<?php echo form_open('officials_controller'); ?>
+<?php echo form_open('Officials'); ?>
 <h1>Insert Data Into Database Using CodeIgniter</h1><hr/>
 <?php if (isset($message)) { ?>
 <CENTER><h3 style="color:green;">Data inserted successfully</h3></CENTER><br>
