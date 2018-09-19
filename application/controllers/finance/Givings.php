@@ -63,14 +63,29 @@ class Givings extends CI_Controller
         $this->load->view('finance/add_givings_view', $data);
         $this->load->view('layout/footer');
     }
-    
+
     public function submitRecord()
     {
+        $members_contributing = $this->input->post('text_fk');
         $result = $this->m->submitRecord();
         if ($result) {
-            $this->session->set_flashdata('success_msg', 'Record added successfully');
+            $this->session->set_flashdata('giving_msg', 'Record added successfully');
         } else {
-            $this->session->set_flashdata('error_msg', 'Fail to add records');
+            $this->session->set_flashdata('giving_msg_error', 'Fail to add records');
         }
+
+        $this->addGivings($members_contributing);
+    }
+
+    public function checkRecord()
+    {
+    	$text_user = $this->input->post('text_user');
+    	$text_date = $this->input->post('text_date');
+    	$result = $this->m->checkRecord($text_user['text_user'], $text_date['text_date']);
+    	if ($result) {
+    		echo json_encode(['status' => 1]);
+    	} else {
+    		echo json_encode(['status' => 0]);
+    	}
     }
 }

@@ -52,24 +52,6 @@ class GivingsModel extends CI_Model{
 		   //$this->db->where('SABBATH_DATE'== '$text_date' AND 'GIVINGS_FK'== '$text_fk');
 
 		);
-		//$q = $this->db->select('*');
-		//$this->db->from('givings_records');
-		//$this->db->where('SABBATH_DATE',$field AND 'GIVINGS_FK',$field);
-		//$qresult = $this->db->get();
-		//$foundRows = $qresult->num_rows;
-
-		//if($foundRows > 0){
-
-//$selectFirstQuery = "SELECT * FROM givings_records WHERE SABBATH_DATE = '' AND GIVINGS_FK = '';";
-//$queryResult = $db->query($selectFirstQuery);
-//$foundRows = $queryResult->num_rows;
-
-//if($foundRows >= 1) {
-  //echo "You are already registered";
-//} else {
-
-  //Your Insert Code Here
-
   
 		$this->db->insert('givings_records', $field);
 		if($this->db->affected_rows() > 0){
@@ -77,7 +59,21 @@ class GivingsModel extends CI_Model{
 		}else{
 			return false;
 		}
-}
+  }
+
+  public function checkRecord($text_user, $text_date)
+  {
+  	$this->db->where('GIVINGS_FK =', $text_user);
+  	$this->db->where('SABBATH_DATE =', $text_date);
+  	//echo $this->db->get_compiled_select();exit();
+  	$query = $this->db->get('givings_records');
+  	if ($query->num_rows() >= 1) {
+  		return true;
+  	} else {
+  		return false;
+  	}
+  }
+
 /*public function check_record_exist($sabbath_date,$fr_key){
 	$this->db->where('SABBATH_DATE',$sabbath_date AND 'GIVINGS_FK',$fr_key);
 	$this->db->from('givings_records');

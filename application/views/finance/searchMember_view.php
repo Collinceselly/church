@@ -1,24 +1,24 @@
 <?php echo form_open('finance/givings/searchMember'); ?>
 <div class="search1"><h3>Search members by ID Card Number or First Name or Other Names</h3>
 	<?php
-	if($this->session->flashdata('success_msg')){
+	if($this->session->flashdata('giving_msg')){
 
 	 ?>
 
 	 <div class="alert alert-success">
-	 	<?php echo $this->session->flashdata('success_msg'); ?>
+	 	<?php echo $this->session->flashdata('giving_msg'); ?>
 	 </div>
 	 <?php
 	}
 	?>
 
 	<?php
-	if($this->session->flashdata('error_msg')){
+	if($this->session->flashdata('giving_msg_error')) {
 
 	 ?>
 
-	 <div class="alert alert-success">
-	 	<?php echo $this->session->flashdata('error_msg'); ?>
+	 <div class="alert alert-danger">
+	 	<?php echo $this->session->flashdata('giving_msg_error'); ?>
 	 </div>
 	 <?php
 	}
