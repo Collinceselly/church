@@ -156,25 +156,29 @@
               let text_date = {'text_date': $('#text_date').val()};
               let text_user = {'text_user': $('#text_user').val()};
               let today = moment().format('MM/DD/YYYY');
-              $.ajax({
-              	url: '<?php echo base_url("finance/givings/checkRecord"); ?>',
-              	type: 'POST',
-              	data: {text_date, text_user},
-              	success: function (response) {
-              		response = JSON.parse(response);
-              		console.log(response);
-              		console.log(response.status);
-              		if (response.status == 1) {
-              			$("#text_date").css('border','solid 1px red'); 
-              			document.getElementById("notifications").innerHTML="<p class='alert alert-danger'>Record With that date already exists for " + $("#text_fname").val().toUpperCase() + " "+ "</p>";
-              		} else if (response.status == 0) {
-              			$.post('<?php echo base_url("finance/givings/submitRecord") ?>', $('form#givingsForm').serialize(), function (data) {
-                        location.reload();
-                    });
-              		}
-              	}
-              });
 
+              if ($today <= $('#text_user').val()){
+	              $.ajax({
+	              	url: '<?php echo base_url("finance/givings/checkRecord"); ?>',
+	              	type: 'POST',
+	              	data: {text_date, text_user},
+	              	success: function (response) {
+	              		response = JSON.parse(response);
+	              		console.log(response);
+	              		console.log(response.status);
+	              		if (response.status == 1) {
+	              			$("#text_date").css('border','solid 1px red');
+	              			document.getElementById("notifications").innerHTML="<p class='alert alert-danger'>Record With that date already exists for " + $("#text_fname").val().toUpperCase() + " "+ "</p>";
+	              		} else if (response.status == 0) {
+	              			$.post('<?php echo base_url("finance/givings/submitRecord") ?>', $('form#givingsForm').serialize(), function (data) {
+	                        location.reload();
+	                    });
+	              		}
+	              	}
+	              });
+              }else{
+              	$("#text_date").css('border','solid 1px red');
+              }
           });
 
 				});

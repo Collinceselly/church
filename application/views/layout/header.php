@@ -5,10 +5,9 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/bootstrap.min.css') ?>">
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/dataTables.min.css') ?>">
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/bootstrap-theme.min.css') ?>">
-	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/js/bootstrap.min.js') ?>">
-	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/jquery/jquery.min.js') ?>">
-	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/jquery/jquery-1.12.4.js') ?>">
-	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/jquery/jquery.mask.min.js') ?>">
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/jquery-ui.css')?>">
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/chartist.min.css')?>">
+	
 </head>
 <style type="text/css">
 	.container{
@@ -33,4 +32,3 @@
 		<h2><span class="glyphicon glyphicon-home"></span>&nbsp;WELCOME</h2>
 	</div>
 </div>
-<div class="container">

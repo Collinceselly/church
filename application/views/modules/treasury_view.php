@@ -98,7 +98,7 @@ body{
 
 
 <div class="members_record"><a href="<?php echo base_url('finance/givings/index'); ?>" class="btn btn-primary">PERSONAL AND CORPERATE GIVINGS</a><br></div>
-<div class="members_record"><a href="<?php echo base_url('reports/individualtithesreport/selectType'); ?>" class="btn btn-primary">CHURCH MEMBERS FINANCIAL REPORT</a><br></div>
+<div class="members_record"><a href="<?php echo base_url('reports/individualTithesReport/selectType'); ?>" class="btn btn-primary">CHURCH MEMBERS FINANCIAL REPORT</a><br></div>
 <div class="members_record"><a href="<?php echo base_url('trial/add'); ?>" class="btn btn-primary">BOOKING AND PAYMENT OF HIRED CHURCH FACILITIES</a><br></div>
 <div class="members_record"><a href="<?php echo base_url('trial/add'); ?>" class="btn btn-primary">REPORT TO THE CONFERENCE</a><br></div>
 		</div>

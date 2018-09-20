@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Visitors extends CI_Controller{
 	function __construct(){
 		parent:: __construct();
-		$this->load->model('clerk/visitors_model', 'm');
+		$this->load->model('clerk/visitorsModel', 'm');
 	}
 
 	function index(){
