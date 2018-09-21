@@ -66,6 +66,34 @@ class IndividualTithesReport extends CI_Controller
         $this->load->view('reports/individual_tithes_view');
     }
 
+    public function viewCombined()
+    {
+
+        $date = $this->input->post('date');
+        $user = $this->input->post('user');
+        $date2 = $this->input->post('date2');
+        if (isset($_POST['user'])) {
+            $result = $this->report_model->viewMemberTithes($user, $date, $date2);
+            $member = array();
+            foreach ($result as $key => $value) {
+                $member[$value->SABBATH_DATE] = $value->COMBINED_OFFERING;
+            }
+            if ($result) {
+                $data['result'] = $result;
+                $data['memberstat'] = $member;
+                $this->load->view('reports/individual_tithes_view', $data);
+            } else {
+                $data['result'] = array();
+                $this->session->set_flashdata('report_missing', 'No Record Found For Such User');
+                $this->load->view('reports/combined_contribution', $data);
+            }
+        } else {
+            $data['result'] = array();
+            $data['memberstat'] = array();
+            $this->load->view('reports/combined_contribution', $data);
+        }
+    }
+
     public function viewTithes()
     {
         $date = $this->input->post('date');
@@ -73,18 +101,24 @@ class IndividualTithesReport extends CI_Controller
         $date2 = $this->input->post('date2');
         $result = $this->report_model->viewMemberTithes($user, $date, $date2);
         $member = array();
-        foreach ($result as $key => $value) {
-            $member[$value->SABBATH_DATE] = $value->TITHES;
-        }
-        if ($result) {
-            $data['result'] = $result;
-            $data['memberstat'] = $member;
-            $this->load->view('reports/individual_tithes_view', $data);
+        if (isset($_POST['user'])) {
+            foreach ($result as $key => $value) {
+                $member[$value->SABBATH_DATE] = $value->TITHES;
+            }
+            if ($result) {
+                $data['result'] = $result;
+                $data['memberstat'] = $member;
+                $this->load->view('reports/combined_contribution', $data);
+            } else {
+                $data['result'] = array();
+                $data['result_display'] = "No record found";
+                $this->session->set_flashdata('report_missing', 'No Record Found For Such User');
+                $this->load->view('reports/combined_contribution', $data);
+            }
         } else {
             $data['result'] = array();
-            $data['result_display'] = "No record found";
-            $this->session->set_flashdata('report_missing', 'No Record Found For Such User');
-            $this->load->view('reports/individual_tithes_view', $data);
+            $data['memberstat'] = array();
+            $this->load->view('reports/combined_contribution', $data);
         }
     }
 

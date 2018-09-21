@@ -4,7 +4,7 @@ echo '<div class="container">';?>
 <!-- <a href="<?php //echo base_url('clerk/searchV/index'); ?>" class="btn btn-primary">Back</a> -->
 <?php $attributes = array('class' => 'form-inline', 'id' => 'myform');
 $total = 0;
-echo form_open('reports/individualTithesReport/viewTithes', $attributes); ?>
+echo form_open('reports/individualTithesReport/viewCombined', $attributes); ?>
 <div class="search1"><h3>Search by first name and sabbath date</h3>
 <?php
 if ($this->session->flashdata('success_msg')) {
@@ -56,8 +56,9 @@ if ($this->session->flashdata('report_missing')) {
       <table class="table table-condensed">
           <thead>
             <tr>
-              <th>Name</th>
-              <th>Sabbath Date</th>
+              <th>NAME</th>
+              <th>SABBATH DATE</th>
+              <th>CONTRIBUTION TYPE</th>
               <th>TOTAL</th>
             </tr>
           </thead>
@@ -65,11 +66,12 @@ if ($this->session->flashdata('report_missing')) {
             <?php
             if (isset($result)) {
                 foreach ($result as $searchUsers) {
-                    $total += $searchUsers->TITHES;?>
+                    $total += $searchUsers->COMBINED_OFFERING;?>
                 <tr>
                   <td><?php echo $searchUsers->NAME; ?></td>
                   <td><?php echo $searchUsers->SABBATH_DATE; ?></td>
-                  <td><?php echo number_format($searchUsers->TITHES, 2);?></td>
+                  <td><?php echo "COMBINED OFFERING"; ?></td>
+                  <td><?php echo number_format($searchUsers->COMBINED_OFFERING, 2);?></td>
                 </tr>
                 <?php
                 }
@@ -79,6 +81,7 @@ if ($this->session->flashdata('report_missing')) {
           <tfoot>
             <tr>
               <th>TOTAL</th>
+              <th></th>
               <th></th>
               <th class="text-danger" style="font-size: 16px; font-weight: bold;"><?php echo number_format($total, 2);?></th>
             </tr>
@@ -96,26 +99,11 @@ if ($this->session->flashdata('report_missing')) {
     </div>
   </div>
 </div>
-
-
 <script>
     $(document).ready(function () {
       //let today = moment().format('MM/DD/YYYY');
      let labels = [];
      let series = [];
-      let srvRqst = $.ajax({
-          url: '<?php echo base_url("reports/individualTithesReport/getAllMembers");?>',
-          data: {},
-          type: 'post',
-          datatype: 'json'
-      });
-      srvRqst.done(function (response) {
-          var dataSource = $.parseJSON(response);
-
-          $("#user").autocomplete({
-              source: dataSource
-          });
-      });
     var memberStat = <?php echo json_encode($memberstat);?>;
     //var dataSource = $.parseJSON(memberStat);
     for(key in memberStat) {
@@ -172,4 +160,5 @@ if ($this->session->flashdata('report_missing')) {
     color: rgb(30,144,255);
 }
 </style>
-<?php require_once __DIR__.'/../layout/footer.php';?>
+<?php
+require_once __DIR__.'/../layout/footer.php';?>
