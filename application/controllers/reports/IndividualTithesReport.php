@@ -72,8 +72,13 @@ class IndividualTithesReport extends CI_Controller
         $user = $this->input->post('user');
         $date2 = $this->input->post('date2');
         $result = $this->report_model->viewMemberTithes($user, $date, $date2);
+        $member = array();
+        foreach ($result as $key => $value) {
+            $member[$value->SABBATH_DATE] = $value->TITHES;
+        }
         if ($result) {
             $data['result'] = $result;
+            $data['memberstat'] = $member;
             $this->load->view('reports/individual_tithes_view', $data);
         } else {
             $data['result'] = array();
@@ -82,7 +87,7 @@ class IndividualTithesReport extends CI_Controller
             $this->load->view('reports/individual_tithes_view', $data);
         }
     }
-    
+
     public function selectMonth()
     {
         $this->load->view('layout/header');
