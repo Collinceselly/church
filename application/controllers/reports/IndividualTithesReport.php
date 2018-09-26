@@ -49,7 +49,7 @@ class IndividualTithesReport extends CI_Controller
     {
         $this->load->view('layout/header');
         $this->load->view('layout/footer');
-        $this->load->view('reports/select_type_view');
+        $this->load->view('reports/select_type1_view');
     }
 
     public function selectType1()
@@ -68,7 +68,8 @@ class IndividualTithesReport extends CI_Controller
 
     public function viewCombined()
     {
-
+        var_dump($_POST);
+        exit();
         $date = $this->input->post('date');
         $user = $this->input->post('user');
         $date2 = $this->input->post('date2');
@@ -81,7 +82,7 @@ class IndividualTithesReport extends CI_Controller
             if ($result) {
                 $data['result'] = $result;
                 $data['memberstat'] = $member;
-                $this->load->view('reports/individual_tithes_view', $data);
+                $this->load->view('reports/combined_contribution', $data);
             } else {
                 $data['result'] = array();
                 $this->session->set_flashdata('report_missing', 'No Record Found For Such User');
@@ -96,22 +97,25 @@ class IndividualTithesReport extends CI_Controller
 
     public function viewTithes()
     {
-        $date = $this->input->post('date');
+        $date = $this->input->post('date_sabbath');
         $user = $this->input->post('user');
-        $date2 = $this->input->post('date2');
+        $date2 = $this->input->post('date_sabbath2');
+        $report_type = strtoupper($this->input->post('report_type'));
         $result = $this->report_model->viewMemberTithes($user, $date, $date2);
         $member = array();
         if (isset($_POST['user'])) {
             foreach ($result as $key => $value) {
-                $member[$value->SABBATH_DATE] = $value->TITHES;
+                $member[$value->SABBATH_DATE] = $value->$report_type;
             }
             if ($result) {
                 $data['result'] = $result;
                 $data['memberstat'] = $member;
+                $data['contribution_type'] = $report_type;
                 $this->load->view('reports/combined_contribution', $data);
             } else {
                 $data['result'] = array();
                 $data['result_display'] = "No record found";
+                $data['contribution_type'] = "";
                 $this->session->set_flashdata('report_missing', 'No Record Found For Such User');
                 $this->load->view('reports/combined_contribution', $data);
             }

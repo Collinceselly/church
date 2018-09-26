@@ -5,7 +5,7 @@ echo '<div class="container">';?>
 <?php $attributes = array('class' => 'form-inline', 'id' => 'myform');
 $total = 0;
 echo form_open('reports/individualTithesReport/viewTithes', $attributes); ?>
-<div class="search1"><h3>Search by first name and sabbath date</h3>
+<div class="search1">
 <?php
 if ($this->session->flashdata('success_msg')) {
 ?>
@@ -32,6 +32,18 @@ if ($this->session->flashdata('report_missing')) {
   <div class="form-group">
       <label for="date">TO:</label>
       <input type="date" id="date2" name="date2" class="form-control" placeholder="yyyy-mm-dd" required>
+  </div>
+
+  <div class="form-group">
+      <label for="report_type"></label>
+      <select id="report_type" name="report_type" class="form-control">
+        <option value="tithes">TITHES</option>
+        <option value="combined_offering">COMBINED OFFERING</option>
+        <option value="church_building">CHURCH BUILDING</option>
+        <option value="conference">CONFERENCE</option>
+        <option value="local_church">LOCAL CHURCH</option>
+        <option value="station_development">STATION DEVELOPMENT</option>
+      </select>
   </div>
   <div class="form-group">
       <label for="user">Member Name:</label>

@@ -15,6 +15,8 @@
               source: dataSource
           });
       });
+
+  $('#all_contributions_table').DataTable();
 });
 </script>
 </body>
