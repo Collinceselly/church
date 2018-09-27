@@ -58,7 +58,7 @@ $total = 0;?>
     <div class="form-group">
       <label for="report_type"></label>
       <select id="report_type" name="report_type" class="form-control" required="required">
-        <option value="">--REPORT--</option>
+        <option value="">--REPORT DATE--</option>
         <option value="tithes">TITHES</option>
         <option value="combined_offering">COMBINED OFFERING</option>
         <option value="church_building">CHURCH BUILDING</option>
@@ -78,30 +78,30 @@ $total = 0;?>
 <!-- search by month and year -->
 <div class="by_month">
     <?php $attributes = array('class' => 'form-inline', 'id' => 'monthly_form');?>
-    <?php echo form_open('reports/individualTithesReport/viewCombined', $attributes); ?>
+    <?php echo form_open('reports/individualTithesReport/viewMonthly', $attributes); ?>
      <div class="form-group">
         <div class="form-group">
-          <label for="dtp_input2" class="col-md-2 control-label">FROM: </label>&nbsp;&nbsp;
-          <div class="input-group date form_date_m col-md-8" data-date="" data-date-format="MM yyyy" data-link-field="date_monthly" data-link-format="yyyy-mm">
-            <input class="form-control" type="text" value="">
+          <label for="date_monthly" class="col-md-2 control-label">FROM: </label>&nbsp;&nbsp;
+          <div class="input-group date form_date_m col-md-8" data-date="" data-date-format="MM yyyy" data-link-field="date_monthly" data-link-format="mm-yyyy">
+            <input class="form-control" type="text" value="" name="date_monthly">
             <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
           </div>
-          <input type="hidden" id="date_sabbath" value="" /><br/>
+          <input type="hidden" id="date_monthly" value="" /><br/>
         </div>
       </div>
       <div class="form-group">
-        <label for="date_monthly" class="col-md-2 control-label">TO:</label>
-        <div class="input-group date form_date_m col-md-8" data-date="" data-date-format="MM yyyy" data-link-field="date_monthly" data-link-format="yyyy-mm">
-          <input class="form-control" type="text" value="" name="date_monthly">
+        <label for="date_monthly2" class="col-md-2 control-label">TO:</label>
+        <div class="input-group date form_date_m col-md-8" data-date="" data-date-format="MM yyyy" data-link-field="date_monthly2" data-link-format="mm-yyyy">
+          <input class="form-control" type="text" value="" name="date_monthly2">
           <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
         </div>
-        <input type="hidden" id="date_monthly" value="" name="date_monthly"/><br/>
+        <input type="hidden" id="date_monthly2" value="" name="date_monthly2"/><br/>
     </div>  
 
     <div class="form-group">
       <label for="report_type"></label>
       <select id="report_type" name="report_type" class="form-control" required="required">
-        <option value="">--OPTIONS--</option>
+        <option value="">--REPORT MONTHLY--</option>
         <option value="tithes">TITHES</option>
         <option value="combined_offering">COMBINED OFFERING</option>
         <option value="church_building">CHURCH BUILDING</option>
@@ -112,7 +112,7 @@ $total = 0;?>
     </div>
     <div class="form-group">
       <label for="user">Member Name:</label>
-      <input type="user" class="form-control" id="user" placeholder="Enter Name of User" name="user" required="required">
+      <input type="user" class="form-control" id="userm" placeholder="Enter Name of User" name="user" required="required">
     </div>
     <input type="submit" name="btnSave" class="btn btn-primary" value="Search"><br>
     <?php echo form_close();?>
@@ -122,7 +122,7 @@ $total = 0;?>
 <!-- search by Year -->
 <div class="by_year">
     <?php $attributes = array('class' => 'form-inline', 'id' => 'year_form');?>
-    <?php echo form_open('reports/individualTithesReport/viewTithes', $attributes); ?>
+    <?php echo form_open('reports/individualTithesReport/viewYearly', $attributes); ?>
     <div class="form-group">
         <div class="form-group">
           <label for="date_yearly" class="col-md-2 control-label">FROM: </label>&nbsp;&nbsp;
@@ -134,18 +134,18 @@ $total = 0;?>
         </div>
       </div>
       <div class="form-group">
-        <label for="date_yearly" class="col-md-2 control-label">TO:</label>
-        <div class="input-group date form_date_y col-md-8" data-date="" data-date-format="yyyy" data-link-field="date_yearly" data-link-format="yyyy">
-          <input class="form-control" type="text" value="" name="date_yearly">
+        <label for="date_yearly2" class="col-md-2 control-label">TO:</label>
+        <div class="input-group date form_date_y col-md-8" data-date="" data-date-format="yyyy" data-link-field="date_yearly2" data-link-format="yyyy">
+          <input class="form-control" type="text" value="" name="date_yearly2">
           <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
         </div>
-        <input type="hidden" id="date_yearly" value="" name="date_yearly"/><br/>
+        <input type="hidden" id="date_yearly2" value="" name="date_yearly2"/><br/>
     </div> 
 
     <div class="form-group">
       <label for="report_type"></label>
       <select id="report_type" name="report_type" class="form-control" required="required">
-        <option value="">--OPTIONS--</option>
+        <option value="">--REPORT YEARLY--</option>
         <option value="tithes">TITHES</option>
         <option value="combined_offering">COMBINED OFFERING</option>
         <option value="church_building">CHURCH BUILDING</option>
@@ -156,7 +156,7 @@ $total = 0;?>
     </div>
     <div class="form-group">
       <label for="user">Member Name:</label>
-      <input type="user" class="form-control" id="user" placeholder="Enter Name of User" name="user" required="required">
+      <input type="user" class="form-control" id="usery" placeholder="Enter Name of User" name="user" required="required">
     </div>
     <input type="submit" name="btnSave" class="btn btn-primary" value="Search"><br>
     <?php echo form_close();?>
@@ -174,8 +174,8 @@ $total = 0;?>
           <table class="table table-condensed" id="all_contributions_table">
             <thead>
               <tr>
-                <th>Name</th>
-                <th>Sabbath Date</th>
+                <th>NAME</th>
+                <th>RECORDING DATE</th>
                 <th>CONTRIBUTION TYPE</th>
                 <th>TOTAL</th>
               </tr>
@@ -186,7 +186,7 @@ $total = 0;?>
                         $total += $searchUsers->$contribution_type;?>
                     <tr>
                       <td><?php echo $searchUsers->NAME; ?></td>
-                      <td><?php echo $searchUsers->SABBATH_DATE; ?></td>
+                      <td><?php echo Date($searchUsers->SABBATH_DATE);?></td>
                       <td><?php echo str_replace("_", " ", $contribution_type); ?></td>
                       <td><?php echo number_format($searchUsers->$contribution_type, 2);?></td>
                     </tr>
@@ -295,7 +295,7 @@ $total = 0;?>
         srvRqst.done(function (response) {
           var dataSource = $.parseJSON(response);
           //console.log(dataSource);
-          $("#user").autocomplete({
+          $("#usery").autocomplete({
             source: dataSource
           });
         });
@@ -315,7 +315,7 @@ $total = 0;?>
         srvRqst.done(function (response) {
           var dataSource = $.parseJSON(response);
           
-          $("#user").autocomplete({
+          $("#userm").autocomplete({
             source: dataSource
           });
         });

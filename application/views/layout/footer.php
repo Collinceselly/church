@@ -16,7 +16,12 @@
           });
       });
 
-  $('#all_contributions_table').DataTable();
+  $('#all_contributions_table').DataTable({
+      dom: 'Bfrtip',
+        buttons: [
+            'copy', 'csv', 'excel', 'pdf', 'print'
+        ]
+    });
 });
 </script>
 </body>

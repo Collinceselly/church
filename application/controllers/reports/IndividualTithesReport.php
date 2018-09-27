@@ -66,25 +66,61 @@ class IndividualTithesReport extends CI_Controller
         $this->load->view('reports/individual_tithes_view');
     }
 
-    public function viewCombined()
+    public function viewMonthly()
     {
-        var_dump($_POST);
-        exit();
-        $date = $this->input->post('date');
+        $date_month1 = $this->input->post('date_monthly');
         $user = $this->input->post('user');
-        $date2 = $this->input->post('date2');
+        $date_month2 = $this->input->post('date_monthly2');
+        $report_type = strtoupper($this->input->post('report_type'));
         if (isset($_POST['user'])) {
-            $result = $this->report_model->viewMemberTithes($user, $date, $date2);
+            $result = $this->report_model->viewMonthly($user, $date_month1, $date_month2, $report_type);
             $member = array();
             foreach ($result as $key => $value) {
-                $member[$value->SABBATH_DATE] = $value->COMBINED_OFFERING;
+                $member[$value->SABBATH_DATE] = $value->$report_type;
             }
             if ($result) {
                 $data['result'] = $result;
                 $data['memberstat'] = $member;
+                $data['contribution_type'] = $report_type;
                 $this->load->view('reports/combined_contribution', $data);
             } else {
                 $data['result'] = array();
+                $data['result_display'] = "No record found";
+                $data['contribution_type'] = "";
+                $data['memberstat'] = array();
+                $this->session->set_flashdata('report_missing', 'No Record Found For Such User');
+                $this->load->view('reports/combined_contribution', $data);
+            }
+        } else {
+            $data['result'] = array();
+            $data['memberstat'] = array();
+            $this->load->view('reports/combined_contribution', $data);
+        }
+    }
+
+    public function viewYearly()
+    {
+
+        $date_year1 = $this->input->post('date_yearly');
+        $user = $this->input->post('user');
+        $date_year2 = $this->input->post('date_yearly2');
+        $report_type = strtoupper($this->input->post('report_type'));
+        if (isset($_POST['user'])) {
+            $result = $this->report_model->viewYearly($user, $date_year1, $date_year2, $report_type);
+            $member = array();
+            if ($result) {
+                foreach ($result as $key => $value) {
+                    $member[$value->SABBATH_DATE] = $value->$report_type;
+                }
+                $data['result'] = $result;
+                $data['memberstat'] = $member;
+                $data['contribution_type'] = $report_type;
+                $this->load->view('reports/combined_contribution', $data);
+            } else {
+                $data['result'] = array();
+                $data['result_display'] = "No record found";
+                $data['contribution_type'] = "";
+                $data['memberstat'] = array();
                 $this->session->set_flashdata('report_missing', 'No Record Found For Such User');
                 $this->load->view('reports/combined_contribution', $data);
             }
@@ -126,6 +162,37 @@ class IndividualTithesReport extends CI_Controller
         }
     }
 
+    public function viewContributions()
+    {
+        $date = $this->input->post('date_sabbath');
+        $user = $this->input->post('user');
+        $date2 = $this->input->post('date_sabbath2');
+        $report_type = strtoupper($this->input->post('report_type'));
+        $result = $this->report_model->viewMemberTithes($user, $date, $date2);
+        $member = array();
+        if (isset($_POST['user'])) {
+            foreach ($result as $key => $value) {
+                $member[$value->SABBATH_DATE] = $value->$report_type;
+            }
+            if ($result) {
+                $data['result'] = $result;
+                $data['memberstat'] = $member;
+                $data['contribution_type'] = $report_type;
+                $this->load->view('reports/all_contributions', $data);
+            } else {
+                $data['result'] = array();
+                $data['result_display'] = "No record found";
+                $data['contribution_type'] = "";
+                $this->session->set_flashdata('report_missing', 'No Record Found For Such User');
+                $this->load->view('reports/all_contributions', $data);
+            }
+        } else {
+            $data['result'] = array();
+            $data['memberstat'] = array();
+            $this->load->view('reports/all_contributions', $data);
+        }
+    }
+
     public function selectMonth()
     {
         $this->load->view('layout/header');
@@ -133,22 +200,22 @@ class IndividualTithesReport extends CI_Controller
         $this->load->view('reports/individual_monthly_tithes_contribution_view');
     }
     
-    public function viewMonthly()
-    {
-        $user = $this->input->post('date');
-        if ($user != "") {
-            $result = $this->report_model->viewMonthly($user);
-            if ($result) {
-                $data['result'] = $result;
-                $this->load->view('reports/individual_monthly_tithes_contribution_view', $data);
-            } else {
-                $data['result_display'] = "No record found";
-                print('No records found for that given month');
-            }
-        } else {
-              print('Please enter date to do the search');
-        }
-    }
+    // public function viewMonthly()
+    // {
+    //     $user = $this->input->post('date');
+    //     if ($user != "") {
+    //         $result = $this->report_model->viewMonthly($user);
+    //         if ($result) {
+    //             $data['result'] = $result;
+    //             $this->load->view('reports/individual_monthly_tithes_contribution_view', $data);
+    //         } else {
+    //             $data['result_display'] = "No record found";
+    //             print('No records found for that given month');
+    //         }
+    //     } else {
+    //           print('Please enter date to do the search');
+    //     }
+    // }
 
     public function selectQuater()
     {

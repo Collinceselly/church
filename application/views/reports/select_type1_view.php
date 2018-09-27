@@ -91,8 +91,8 @@
 	<div class="dropdown"><br>
   <div class="members_record"><button class="btn btn-primary">WHEN</button></div>
   <div class="dropdown-content">
-    <a href="<?php echo base_url('reports/individualTithesReport/viewCombined'); ?>">ALL Contribution</a>
-    <a href="<?php echo base_url('reports/individualTithesReport/viewTithes'); ?>">PER Contribution</a>
+    <a href="<?php echo base_url('reports/individualTithesReport/viewContributions'); ?>">ALL CONTIRBUTIONS</a>
+    <a href="<?php echo base_url('reports/individualTithesReport/viewTithes'); ?>">PER CONTRIBUTIONS</a>
    <!--  <a href="<?php //echo base_url('reports/individualTithesReport/selectMonth'); ?>">MONTHLY REPORT</a>
     <a href="<?php //echo base_url('reports/individualTithesReport/selectQuater'); ?>">QUATER REPORT</a>
     <a href="<?php //echo base_url('reports/individualTithesReport/selectYear'); ?>">ANNUAL</a> -->

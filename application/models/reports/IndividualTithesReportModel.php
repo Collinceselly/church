@@ -55,17 +55,25 @@ class IndividualTithesReportModel extends CI_Model
         return $query->result();
     }
 
-    public function viewMonthly($user)
+    public function viewMonthly($user, $date, $date2, $report)
     {
-        $this->db->select('*');
-        $this->db->from('givings_records');
-        $this->db->join('adults_members_records', 'adults_members_records.ID = givings_records.GIVINGS_FK', 'full');
-        $this->db->where('MONTH(SABBATH_DATE)', $user);
-        $query = $this->db->get();
+        $q = "SELECT SUM($report) as $report, DATE_FORMAT(SABBATH_DATE, '%m-%Y') AS SABBATH_DATE, NAME FROM adults_givings WHERE NAME LIKE '$user' AND DATE_FORMAT(SABBATH_DATE, '%m-%Y') BETWEEN '$date' and '$date2' GROUP BY DATE_FORMAT(SABBATH_DATE, '%m-%Y')";
+        $query = $this->db->query($q);
         if ($query->num_rows()>0) {
-             return $query->result();
+            return $query->result();
         } else {
-             return false;
+            return false;
+        }
+    }
+
+    public function viewYearly($user, $date, $date2, $report)
+    {
+        $q = "SELECT SUM($report) as $report, DATE_FORMAT(SABBATH_DATE, '%Y') AS SABBATH_DATE, NAME FROM adults_givings WHERE NAME LIKE '$user' AND DATE_FORMAT(SABBATH_DATE, '%Y') BETWEEN '$date' and '$date2' GROUP BY DATE_FORMAT(SABBATH_DATE, '%Y')";
+        $query = $this->db->query($q);
+        if ($query->num_rows()>0) {
+            return $query->result();
+        } else {
+            return false;
         }
     }
 
