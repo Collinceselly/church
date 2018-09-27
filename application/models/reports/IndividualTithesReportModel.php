@@ -77,6 +77,20 @@ class IndividualTithesReportModel extends CI_Model
         }
     }
 
+    public function viewContributionsDate($user, $date, $date2)
+    {
+        $this->db->select('*');
+        $this->db->where('NAME', $user);
+        $this->db->where("SABBATH_DATE BETWEEN '" .$date. "' AND '". $date2."'", "", false);
+        $query = $this->db->get("adults_givings");
+        
+        if ($query->num_rows()>0) {
+            return $query->result_array();
+        } else {
+            return false;
+        }
+    }
+
     public function firstQuater($data)
     {
         $this->db->select('*');
