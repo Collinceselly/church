@@ -1,8 +1,12 @@
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
 	<script src="http://code.jquery.com/jquery-1.12.4.js" ></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.13.4/jquery.mask.min.js"></script>
-<body>
-		<div class="rows">
+
+<body> -->
+<?php
+require_once __DIR__.'/../layout/header.php';
+echo '<div class="container">';?>
+<div class="rows">
 			<div class="col-md-2"><a href="<?php echo base_url('finance/givings/getMembers'); ?>" class="btn btn-primary">Back</a></div>
 			<div class="col-md-10">
 					<?php if ($this->session->flashdata('giving_msg')): 
@@ -11,11 +15,8 @@
 					?>
 					<span id="notifications"></span>
 			</div>
-		</div>
-		
+<div class="col-md-12">
 			<form action="#" method="post" id="givingsForm" class="form-horizontal">
-				<div class="rows">
-					<div class="col-md-12">
 					<div class="col-md-5">
 					<h3>Members Details</h3>
 					<input type="hidden" name="text_hidden" value="<?php echo $members->ID;?>" >
@@ -123,14 +124,15 @@
 						</div>
 					</div>
 				</div>
-				</div>
-		</div>
+			
 	</form>
+</div>
+</div>
 			<script type="text/javascript" src="<?php echo base_url('assets/js/moment.js') ?>"></script>
 			<script type="text/javascript">
 				$(function(){
 					
-					
+					console.log(moment().format('YYYY-MM-DD'));
 					$('.amount').mask('#,###.##',{reverse : true});
 
 					var total_amount = function(){
@@ -155,9 +157,10 @@
               e.preventDefault();
               let text_date = {'text_date': $('#text_date').val()};
               let text_user = {'text_user': $('#text_user').val()};
-              let today = moment().format('MM/DD/YYYY');
-
-              if ($today <= $('#text_user').val()){
+              let today = moment().format('YYYY-MM-DD');
+              console.log(today);
+              console.log($('#text_date').val());
+              if ($('#text_date').val() <= today){
 	              $.ajax({
 	              	url: '<?php echo base_url("finance/givings/checkRecord"); ?>',
 	              	type: 'POST',
@@ -176,11 +179,12 @@
 	              		}
 	              	}
 	              });
-              }else{
+              } else if ($('#text_date').val() > today ) {
+              	document.getElementById("notifications").innerHTML="<p class='alert alert-danger'>The Date Selected Exceeds Today's Date " + today + " "+ "</p>";
               	$("#text_date").css('border','solid 1px red');
               }
           });
 
 				});
 			</script>
-</body>
+<?php require_once __DIR__.'/../layout/footer.php';?>

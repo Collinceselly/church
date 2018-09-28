@@ -91,6 +91,44 @@ class IndividualTithesReportModel extends CI_Model
         }
     }
 
+    public function viewContributionsMonthly($user, $date, $date2)
+    {
+        $q = "SELECT SUM(TITHES) AS TITHES,
+                SUM(COMBINED_OFFERING) AS COMBINED_OFFERING,
+                SUM(CAMP_OFFERING) AS CAMP_OFFERING,
+                SUM(CHURCH_BUILDING) AS CHURCH_BUILDING,
+                SUM(CONFERENCE) AS CONFERENCE,
+                SUM(LOCAL_CHURCH) AS LOCAL_CHURCH,
+                SUM(STATION_DEVELOPMENT) AS STATION_DEVELOPMENT,
+                DATE_FORMAT(SABBATH_DATE, '%m-%Y') AS SABBATH_DATE, NAME FROM adults_givings WHERE NAME LIKE '$user' AND DATE_FORMAT(SABBATH_DATE, '%m-%Y') BETWEEN '$date' and '$date2' GROUP BY DATE_FORMAT(SABBATH_DATE, '%m-%Y')";
+        
+        $query = $this->db->query($q);
+        if ($query->num_rows()>0) {
+            return $query->result_array();
+        } else {
+            return false;
+        }
+    }
+
+    public function viewContributionsYearly($user, $date, $date2)
+    {
+        $q = "SELECT SUM(TITHES) AS TITHES,
+                SUM(COMBINED_OFFERING) AS COMBINED_OFFERING,
+                SUM(CAMP_OFFERING) AS CAMP_OFFERING,
+                SUM(CHURCH_BUILDING) AS CHURCH_BUILDING,
+                SUM(CONFERENCE) AS CONFERENCE,
+                SUM(LOCAL_CHURCH) AS LOCAL_CHURCH,
+                SUM(STATION_DEVELOPMENT) AS STATION_DEVELOPMENT,
+                DATE_FORMAT(SABBATH_DATE, '%Y') AS SABBATH_DATE, NAME FROM adults_givings WHERE NAME LIKE '$user' AND DATE_FORMAT(SABBATH_DATE, '%Y') BETWEEN '$date' and '$date2' GROUP BY DATE_FORMAT(SABBATH_DATE, '%Y')";
+        
+        $query = $this->db->query($q);
+        if ($query->num_rows()>0) {
+            return $query->result_array();
+        } else {
+            return false;
+        }
+    }
+
     public function firstQuater($data)
     {
         $this->db->select('*');

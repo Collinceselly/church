@@ -212,6 +212,101 @@ class IndividualTithesReport extends CI_Controller
         }
     }
 
+    public function viewContributionsMonthly()
+    {
+        
+        $date = $this->input->post('date_monthly');
+        $user = $this->input->post('user');
+        $date2 = $this->input->post('date_monthly2');
+        $member = array();
+        if (isset($_POST['user'])) {
+            $result = $this->report_model->viewContributionsMonthly($user, $date, $date2);
+            if ($result) {
+                $member['TITHES'] = 0;
+                $member['COMBINED_OFFERING'] = 0;
+                $member['CAMP_OFFERING'] = 0;
+                $member['CHURCH_BUILDING'] = 0;
+                $member['CONFERENCE'] = 0;
+                $member['LOCAL_CHURCH'] = 0;
+                $member['STATION_DEVELOPMENT'] = 0;
+                foreach ($result as $key => $value) {
+                    $member['TITHES'] += (!empty($value['TITHES'])) ? $value['TITHES'] : 0 ;
+                    $member['COMBINED_OFFERING'] += (!empty($value['COMBINED_OFFERING'])) ? $value['COMBINED_OFFERING'] : 0 ;
+                    $member['CAMP_OFFERING'] += (!empty($value['CAMP_OFFERING'])) ? $value['CAMP_OFFERING'] : 0 ;
+                    $member['CHURCH_BUILDING'] += (!empty($value['CHURCH_BUILDING'])) ? $value['CHURCH_BUILDING'] : 0 ;
+                    $member['CONFERENCE'] += (!empty($value['CONFERENCE'])) ? $value['CONFERENCE'] : 0 ;
+                    $member['LOCAL_CHURCH'] += (!empty($value['LOCAL_CHURCH'])) ? $value['LOCAL_CHURCH'] : 0 ;
+                    $member['STATION_DEVELOPMENT'] += (!empty($value['STATION_DEVELOPMENT'])) ? $value['STATION_DEVELOPMENT'] : 0 ;
+                }
+
+                if ($result) {
+                    $data['result'] = $result;
+                    $data['memberstat'] = $member;
+                    $data['contribution_type'] = "";
+                    $this->load->view('reports/all_contributions', $data);
+                } else {
+                    $data['result'] = array();
+                    $data['result_display'] = "No record found";
+                    $data['contribution_type'] = "";
+                    $this->session->set_flashdata('report_missing', 'No Record Found For Such User');
+                    $this->load->view('reports/all_contributions', $data);
+                }
+            }
+        } else {
+            $data['result'] = array();
+            $data['memberstat'] = array();
+            $this->load->view('reports/all_contributions', $data);
+        }
+    }
+
+    public function viewContributionsYearly()
+    {
+        
+        $date = $this->input->post('date_yearly');
+        $user = $this->input->post('user');
+        $date2 = $this->input->post('date_yearly2');
+        $member = array();
+        if (isset($_POST['user'])) {
+            $result = $this->report_model->viewContributionsYearly($user, $date, $date2);
+            if ($result) {
+                $member['TITHES'] = 0;
+                $member['COMBINED_OFFERING'] = 0;
+                $member['CAMP_OFFERING'] = 0;
+                $member['CHURCH_BUILDING'] = 0;
+                $member['CONFERENCE'] = 0;
+                $member['LOCAL_CHURCH'] = 0;
+                $member['STATION_DEVELOPMENT'] = 0;
+                foreach ($result as $key => $value) {
+                    $member['TITHES'] += (!empty($value['TITHES'])) ? $value['TITHES'] : 0 ;
+                    $member['COMBINED_OFFERING'] += (!empty($value['COMBINED_OFFERING'])) ? $value['COMBINED_OFFERING'] : 0 ;
+                    $member['CAMP_OFFERING'] += (!empty($value['CAMP_OFFERING'])) ? $value['CAMP_OFFERING'] : 0 ;
+                    $member['CHURCH_BUILDING'] += (!empty($value['CHURCH_BUILDING'])) ? $value['CHURCH_BUILDING'] : 0 ;
+                    $member['CONFERENCE'] += (!empty($value['CONFERENCE'])) ? $value['CONFERENCE'] : 0 ;
+                    $member['LOCAL_CHURCH'] += (!empty($value['LOCAL_CHURCH'])) ? $value['LOCAL_CHURCH'] : 0 ;
+                    $member['STATION_DEVELOPMENT'] += (!empty($value['STATION_DEVELOPMENT'])) ? $value['STATION_DEVELOPMENT'] : 0 ;
+                }
+
+                if ($result) {
+                    $data['result'] = $result;
+                    $data['memberstat'] = $member;
+                    $data['contribution_type'] = "";
+                    $this->load->view('reports/all_contributions', $data);
+                } else {
+                    $data['result'] = array();
+                    $data['result_display'] = "No record found";
+                    $data['contribution_type'] = "";
+                    $this->session->set_flashdata('report_missing', 'No Record Found For Such User');
+                    $this->load->view('reports/all_contributions', $data);
+                }
+            }
+        } else {
+            $data['result'] = array();
+            $data['memberstat'] = array();
+            $this->load->view('reports/all_contributions', $data);
+        }
+    }
+
+
     public function selectMonth()
     {
         $this->load->view('layout/header');

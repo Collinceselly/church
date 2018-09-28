@@ -66,7 +66,7 @@ $total = 0;?>
 <!-- search by month and year -->
 <div class="by_month">
     <?php $attributes = array('class' => 'form-inline', 'id' => 'monthly_form');?>
-    <?php echo form_open('reports/individualTithesReport/viewMonthly', $attributes); ?>
+    <?php echo form_open('reports/individualTithesReport/viewContributionsMonthly', $attributes); ?>
      <div class="form-group">
         <div class="form-group">
           <label for="date_monthly" class="col-md-2 control-label">FROM: </label>&nbsp;&nbsp;
@@ -98,7 +98,7 @@ $total = 0;?>
 <!-- search by Year -->
 <div class="by_year">
     <?php $attributes = array('class' => 'form-inline', 'id' => 'year_form');?>
-    <?php echo form_open('reports/individualTithesReport/viewYearly', $attributes); ?>
+    <?php echo form_open('reports/individualTithesReport/viewContributionsYearly', $attributes); ?>
     <div class="form-group">
         <div class="form-group">
           <label for="date_yearly" class="col-md-2 control-label">FROM: </label>&nbsp;&nbsp;
@@ -182,7 +182,7 @@ $total = 0;?>
                 <th></th>
                 <th></th>
                 <th></th>
-                <th class="text-danger" style="font-size: 16px; font-weight: bold;"><?php echo number_format($total, 2);?></th>
+                <th class="text-danger" style="font-size: 16px; font-weight: bold;"><?php echo $total;?></th>
               </tr>
             </tfoot>
           </table>      
