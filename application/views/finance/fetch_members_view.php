@@ -24,8 +24,8 @@
 	 <?php
 	}
 	?>
-		<a href="<?php echo base_url('modules/clerk_controller/index'); ?>" class="btn btn-primary">Back</a>
-	<div class="search_button"><a href="<?php echo base_url('finance/givings_controller/search'); ?>" class="btn btn-primary">Search Member</a></div>
+		<a href="<?php echo base_url('modules/clerk/index'); ?>" class="btn btn-primary">Back</a>
+	<div class="search_button"><a href="<?php echo base_url('finance/givings/search'); ?>" class="btn btn-primary">Search Member</a></div>
 	<table class="table table-striped table-hover table-responsive table-condensed">
 		<thead>
 			<tr>
@@ -54,7 +54,7 @@
 				<td><?php echo $member->GENDER; ?></td>
 				<td><?php echo $member->PHONE_NUMBER; ?></td>
 				<td>
-					<a href="<?php echo base_url('finance/givings_controller/addGivings/'.$member->ID); ?>" class="btn btn-info">Add Givings record</a>
+					<a href="<?php echo base_url('finance/givings/addGivings/'.$member->ID); ?>" class="btn btn-info">Add Givings record</a>
 				</td>
 			</tr>
 			<?php

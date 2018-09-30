@@ -84,23 +84,23 @@ body{
 </style>
 <body>
 	<div class="h1"><h1>Welcome  Clerk <?php echo $this->session->userdata('FIRST_NAME')?></h1></div>
-	<div class="logout"><a href="<?php echo base_url('login_controller/logout')?>">LOGOUT</a></div>
+	<div class="logout"><a href="<?php echo base_url('Login/logout')?>">LOGOUT</a></div>
 	<div class="p1"><p>Please choose the activity you would like to perform from the list below</p></div>
 	<div class=activities>
 <div class="dropdown"><br>
   <div class="members_record"><button class="btn btn-primary">MEMBERS RECORDS</button></div>
   <div class="dropdown-content">
-    <a href="<?php echo base_url('clerk/adults_controller/index'); ?>">ADULTS RECORDS</a>
-    <a href="<?php echo base_url('clerk/children_controller/index'); ?>">CHILDREN RECORDS</a>
-    <a href="<?php echo base_url('clerk/visitors_controller/index'); ?>">VISITORS RECORDS</a>
+    <a href="<?php echo base_url('clerk/adults/index'); ?>">ADULTS RECORDS</a>
+    <a href="<?php echo base_url('clerk/children/index'); ?>">CHILDREN RECORDS</a>
+    <a href="<?php echo base_url('clerk/visitors/index'); ?>">VISITORS RECORDS</a>
   </div>
 </div><br>
 
 
-<div class="members_record"><a href="<?php echo base_url('clerk/search_m_controller/index'); ?>" class="btn btn-primary">MEMBERS TRANSFER PROCESS</a><br></div>
-<div class="members_record"><a href="<?php echo base_url('clerk/baptismal_records_controller/index'); ?>" class="btn btn-primary">BAPTISIMAL RECORDS</a><br></div>
-<div class="members_record"><a href="<?php echo base_url('clerk/adults_controller/add'); ?>" class="btn btn-primary">BABY DEDICATION RECORDS</a><br></div>
-<div class="members_record"><a href="<?php echo base_url('/clerk/adults_controller/add'); ?>" class="btn btn-primary">MARRIAGE NOTIFICATIONS</a><br></div>
+<div class="members_record"><a href="<?php echo base_url('clerk/searchm/index'); ?>" class="btn btn-primary">MEMBERS TRANSFER PROCESS</a><br></div>
+<div class="members_record"><a href="<?php echo base_url('clerk/baptismalrecords/index'); ?>" class="btn btn-primary">BAPTISIMAL RECORDS</a><br></div>
+<div class="members_record"><a href="<?php echo base_url('clerk/adults/add'); ?>" class="btn btn-primary">BABY DEDICATION RECORDS</a><br></div>
+<div class="members_record"><a href="<?php echo base_url('/clerk/adults/add'); ?>" class="btn btn-primary">MARRIAGE NOTIFICATIONS</a><br></div>
 		</div>
 	</div>
 </body>

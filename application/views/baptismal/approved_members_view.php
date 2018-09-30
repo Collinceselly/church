@@ -1,5 +1,5 @@
 <h3>Edit Baptismal Members Records</h3>
-<a href="<?php echo base_url('children_controller/index'); ?>" class="btn btn-primary">Back</a>
+<a href="<?php echo base_url('children/index'); ?>" class="btn btn-primary">Back</a>
 <form action="<?php echo base_url('baptismal_records_controller/approved') ?>" method="post" class="form-horizontal">
 	<input type="hidden" name="text_hidden" value="<?php echo $members->ID;?>" >
 	

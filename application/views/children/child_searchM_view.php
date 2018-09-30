@@ -1,4 +1,4 @@
-<?php echo form_open('child_searchM_controller/search'); ?>
+<?php echo form_open('childrenSearchM/search'); ?>
 <div class="search1"><h3>Search by Mother's ID Card Number</h3>
 	<?php
 	if($this->session->flashdata('success_msg')){
@@ -83,8 +83,8 @@
 					<td><?php echo $searchUsers->MOTHER_IDNO; ?></td>
 					<td><?php echo $searchUsers->PHONE_NUMBER; ?></td>-->
 					<td>
-						<a href="<?php echo base_url('children_controller/edit/'.$searchUsers->ID); ?>" class="btn btn-info">Edit</a>
-					<a href="<?php echo base_url('children_controller/delete/'.$searchUsers->ID) ?>" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this record?');">Delete</a>
+						<a href="<?php echo base_url('children/edit/'.$searchUsers->ID); ?>" class="btn btn-info">Edit</a>
+					<a href="<?php echo base_url('children/delete/'.$searchUsers->ID) ?>" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this record?');">Delete</a>
 					</td>
 				</tr>
 			

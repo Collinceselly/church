@@ -1,4 +1,4 @@
-<?php echo form_open('clerk/child_search_controller/search'); ?>
+<?php echo form_open('clerk/childrenSearch/search'); ?>
 <div class="search1"><h3>Search by Parents ID Card Number</h3>
 	<?php
 	if($this->session->flashdata('success_msg')){
@@ -26,7 +26,7 @@
 
 <input type="text" name="idno" placeholder="Enter Parents ID Number" required><br>
 			<input type="submit" name="btnSave" class="btn btn-primary" value="Search"><br></div>
-			<a href="<?php echo base_url('clerk/search_c_controller/index'); ?>" class="btn btn-primary">Back</a>
+			<a href="<?php echo base_url('clerk/searchC/index'); ?>" class="btn btn-primary">Back</a>
 
 <table class="table table-striped table-hover table-responsive table-condensed">
 	<thead>
@@ -72,8 +72,8 @@
 					<td><?php echo $searchUsers->MOTHER_IDNO; ?></td>
 					<td><?php echo $searchUsers->PHONE_NUMBER; ?></td>
 					<td>
-						<a href="<?php echo base_url('clerk/children_controller/edit/'.$searchUsers->ID); ?>" class="btn btn-info">Edit</a>
-					<a href="<?php echo base_url('clerk/children_controller/delete/'.$searchUsers->ID) ?>" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this record?');">Delete</a>
+						<a href="<?php echo base_url('clerk/children/edit/'.$searchUsers->ID); ?>" class="btn btn-info">Edit</a>
+					<a href="<?php echo base_url('clerk/children/delete/'.$searchUsers->ID) ?>" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this record?');">Delete</a>
 					</td>
 				</tr>
 			

@@ -84,23 +84,23 @@ body{
 </style>
 <body>
 	<div class="h1"><h1>Welcome  Treasurer <?php echo $this->session->userdata('FIRST_NAME')?></h1></div>
-	<div class="logout"><a href="<?php echo base_url('login_controller/logout')?>">LOGOUT</a></div>
+	<div class="logout"><a href="<?php echo base_url('Login/logout')?>">LOGOUT</a></div>
 	<div class="p1"><p>Please choose the activity you would like to perform from the list below</p></div>
 	<div class=activities>
 <!--<div class="dropdown"><br>
   <div class="members_record"><button class="btn btn-primary">MEMBERS RECORDS</button></div>
   <div class="dropdown-content">
-    <a href="<?php echo base_url('trial_controller/index'); ?>">ADULTS RECORDS</a>
+    <a href="<?php echo base_url('trial/index'); ?>">ADULTS RECORDS</a>
     <a href="<?php echo base_url('children_controller/index'); ?>">CHILDREN RECORDS</a>
     <a href="<?php echo base_url('visitors_controller/index'); ?>">VISITORS RECORDS</a>
   </div>
 </div><br>-->
 
 
-<div class="members_record"><a href="<?php echo base_url('finance/givings_controller/index'); ?>" class="btn btn-primary">PERSONAL AND CORPERATE GIVINGS</a><br></div>
-<div class="members_record"><a href="<?php echo base_url('reports/individual_tithes_report_controller/selectType'); ?>" class="btn btn-primary">CHURCH MEMBERS FINANCIAL REPORT</a><br></div>
-<div class="members_record"><a href="<?php echo base_url('trial_controller/add'); ?>" class="btn btn-primary">BOOKING AND PAYMENT OF HIRED CHURCH FACILITIES</a><br></div>
-<div class="members_record"><a href="<?php echo base_url('trial_controller/add'); ?>" class="btn btn-primary">REPORT TO THE CONFERENCE</a><br></div>
+<div class="members_record"><a href="<?php echo base_url('finance/givings/index'); ?>" class="btn btn-primary">PERSONAL AND CORPERATE GIVINGS</a><br></div>
+<div class="members_record"><a href="<?php echo base_url('reports/individualTithesReport/selectType'); ?>" class="btn btn-primary">CHURCH MEMBERS FINANCIAL REPORT</a><br></div>
+<div class="members_record"><a href="<?php echo base_url('trial/add'); ?>" class="btn btn-primary">BOOKING AND PAYMENT OF HIRED CHURCH FACILITIES</a><br></div>
+<div class="members_record"><a href="<?php echo base_url('trial/add'); ?>" class="btn btn-primary">REPORT TO THE CONFERENCE</a><br></div>
 		</div>
 	</div>
 </body>

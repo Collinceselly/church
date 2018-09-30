@@ -85,19 +85,19 @@
 }
 </style>
 <body>
-	<a href="<?php echo base_url('clerk/visitors_controller/index'); ?>" class="btn btn-primary">Back</a>
+	<a href="<?php echo base_url('clerk/visitors/index'); ?>" class="btn btn-primary">Back</a>
 	<div class="p1"><p>Choose the report creterion from the dropdown</p></div>
 <div class="pos">
 	<div class="dropdown"><br>
   <div class="members_record"><button class="btn btn-primary">CONTRIBUTION TYPE</button></div>
   <div class="dropdown-content">
-    <a href="<?php echo base_url('reports/individual_tithes_report_controller/selectType1'); ?>">TITHES REPORT</a>
-    <a href="<?php echo base_url('reports/individual_tithes_report_controller/selectType1'); ?>">COMBINED_OFFERINGS</a>
-    <a href="<?php echo base_url('reports/individual_tithes_report_controller/selectType1'); ?>">CAMP MEETING OFFERING</a>
-    <a href="<?php echo base_url('reports/individual_tithes_report_controller/selectType1'); ?>">CHURCH BULDING OFFERINGS</a>
-    <a href="<?php echo base_url('reports/individual_tithes_report_controller/selectType1'); ?>">GENERAL CONFERENCE OFFERINGS</a>
-    <a href="<?php echo base_url('reports/individual_tithes_report_controller/selectType1'); ?>">LOCAL CHURCH OFFERINGS</a>
-    <a href="<?php echo base_url('reports/individual_tithes_report_controller/selectType1'); ?>">STATION DEVELOPMENT OFFERING</a>
+    <a href="<?php echo base_url('reports/individualTithesReport/selectType1'); ?>">TITHES REPORT</a>
+    <a href="<?php echo base_url('reports/individualTithesReport/selectType1'); ?>">COMBINED_OFFERINGS</a>
+    <a href="<?php echo base_url('reports/individualTithesReport/selectType1'); ?>">CAMP MEETING OFFERING</a>
+    <a href="<?php echo base_url('reports/individualTithesReport/selectType1'); ?>">CHURCH BULDING OFFERINGS</a>
+    <a href="<?php echo base_url('reports/individualTithesReport/selectType1'); ?>">GENERAL CONFERENCE OFFERINGS</a>
+    <a href="<?php echo base_url('reports/individualTithesReport/selectType1'); ?>">LOCAL CHURCH OFFERINGS</a>
+    <a href="<?php echo base_url('reports/individualTithesReport/selectType1'); ?>">STATION DEVELOPMENT OFFERING</a>
   </div>
 </div><br>
 </div>

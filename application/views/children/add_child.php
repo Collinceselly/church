@@ -1,7 +1,7 @@
 <h3>Add a child</h3>
-<a href="<?php echo base_url('clerk/children_controller/index'); ?>" class="btn btn-default">Back</a>
+<a href="<?php echo base_url('clerk/children/index'); ?>" class="btn btn-default">Back</a>
 <div class ="form_content">
-<form action="<?php echo base_url('clerk/children_controller/submit') ?>" method="post" class="form-horizontal">
+<form action="<?php echo base_url('clerk/children/submit') ?>" method="post" class="form-horizontal">
 	<div class ="form-group">
 		<label for="fname" class="class-md-2 text-right">First Name</label>
 		<div class="col-md-3">

@@ -1,6 +1,6 @@
 <h3>Parents Details</h3>
-<a href="<?php echo base_url('children_controller/index'); ?>" class="btn btn-primary">Back</a>
-<form action="<?php echo base_url('advanced_add_child_controller/advancedSubmit') ?>" method="post" class="form-horizontal">
+<a href="<?php echo base_url('children/index'); ?>" class="btn btn-primary">Back</a>
+<form action="<?php echo base_url('AdvancedAddChild/advancedSubmit') ?>" method="post" class="form-horizontal">
 	<input type="hidden" name="text_hidden" value="<?php echo $members->ID;?>" >
 	
 	

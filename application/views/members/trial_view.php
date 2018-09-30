@@ -24,9 +24,9 @@
 	 <?php
 	}
 	?>
-	<a href="<?php echo base_url('clerk/adults_controller/add'); ?>" class="btn btn-primary">Add New</a>
-	<a href="<?php echo base_url('modules/clerk_controller/index'); ?>" class="btn btn-primary">Back</a>
-	<div class="search_button"><a href="<?php echo base_url('clerk/search_controller/index'); ?>" class="btn btn-primary">Search Member</a></div>
+	<a href="<?php echo base_url('clerk/adults/add'); ?>" class="btn btn-primary">Add New</a>
+	<a href="<?php echo base_url('modules/clerk/index'); ?>" class="btn btn-primary">Back</a>
+	<div class="search_button"><a href="<?php echo base_url('clerk/search/index'); ?>" class="btn btn-primary">Search Member</a></div>
 	<table class="table table-striped table-hover table-responsive table-condensed">
 		<thead>
 			<tr>
@@ -63,8 +63,8 @@
 				<td><?php echo $member->EMAIL_ADDRESS; ?></td>
 				<td><?php echo $member->RESIDENTIAL_ADDRESS; ?></td>
 				<td>
-					<a href="<?php echo base_url('clerk/adults_controller/edit/'.$member->ID); ?>" class="btn btn-info">Edit</a>
-					<a href="<?php echo base_url('clerk/adults_controller/delete/'.$member->ID) ?>" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this record?');">Delete</a>
+					<a href="<?php echo base_url('clerk/adults/edit/'.$member->ID); ?>" class="btn btn-info">Edit</a>
+					<a href="<?php echo base_url('clerk/adults/delete/'.$member->ID) ?>" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this record?');">Delete</a>
 				</td>
 			</tr>
 			<?php

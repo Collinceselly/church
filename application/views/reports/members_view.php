@@ -24,8 +24,8 @@
 	 <?php
 	}
 	?>
-	<!--<a href="<?php echo base_url('clerk/adults_controller/add'); ?>" class="btn btn-primary">Add New</a>
-	<a href="<?php echo base_url('modules/clerk_controller/index'); ?>" class="btn btn-primary">Back</a>-->
+	<!--<a href="<?php echo base_url('clerk/adults/add'); ?>" class="btn btn-primary">Add New</a>
+	<a href="<?php echo base_url('modules/clerk/index'); ?>" class="btn btn-primary">Back</a>-->
 	<div class="search_button"><a href="<?php echo base_url('clerk/search_controller/index'); ?>" class="btn btn-primary">Search Member</a></div>
 	<table class="table table-striped table-hover table-responsive table-condensed">
 		<thead>
@@ -55,7 +55,7 @@
 				<td><?php echo $member->GENDER; ?></td>
 				<td><?php echo $member->PHONE_NUMBER; ?></td>
 				<td>
-					<a href="<?php echo base_url('reports/individual_member_sabbath_contribution_controller/selectDate'); ?>" class="btn btn-info">Records</a>
+					<a href="<?php echo base_url('reports/individualMemberSabbathContribution/selectDate'); ?>" class="btn btn-info">Records</a>
 				</td>
 			</tr>
 			<?php
