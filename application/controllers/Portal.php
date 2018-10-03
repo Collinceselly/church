@@ -12,6 +12,7 @@ class Portal extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+        $this->load->model('loginModel');
         require_once APPPATH . "third_party/AfricasTalkingGateway.php";
         $username = "";
         $apikey = "";
@@ -29,13 +30,13 @@ class Portal extends CI_Controller
         $username = $this->input->post('username');
         $password = sha1($this->input->post('password'));
 
-        $checklogin=$this->loginModel->loginUser($user, $pass);
+        $checklogin=$this->loginModel->loginUser($username, $password);
 
         if ($checklogin) {
             $this->session->set_flashdata('account_succ', 'Successful Login');
             $this->session->set_userdata($checklogin);
         } else {
-            $checkInactive = $this->login->loginCheck($user, $pass);
+            $checkInactive = $this->loginModel->loginCheck($username, $password);
             if ($checkInactive) {
                 $this->session->set_flashdata('account_error', 'Your Account is Inactive');
                 $data['title'] = 'Account Activate';
