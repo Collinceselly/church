@@ -10,7 +10,7 @@ class HomePage extends CI_Controller
     }
     public function index()
     {
-         $this->load->view('layout/header');
+         // $this->load->view('layout/header');
          $this->load->helper('url');
          $this->load->view('home_page_view');
     }

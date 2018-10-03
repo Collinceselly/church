@@ -40,7 +40,7 @@
 		color: green;
 		font-size: 10px;
 		border: 1px solid grey;
-		border-image: url("assets/images/sda logo1");
+		border-image: url("assets/images/sda_logo.jpg");
 		border-radius: 20px;
 	}
 	div.head1{
