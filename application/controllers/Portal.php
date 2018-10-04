@@ -22,7 +22,7 @@ class Portal extends CI_Controller
         
         self::$username = "";
         // self::$password= "";
-        self::$apikey = "";
+        self::$apikey = "e0ce12a49718ee1bb5f3ec6804580de2e5b4395ed782b914b847e145f4a36d3c";
     }
 
     public function index()
@@ -85,7 +85,7 @@ class Portal extends CI_Controller
         if (isset($_POST['v_code'])) {
             $actives = $this->loginModel->checkCodeExists($phone_number, $this->input->post('v_code'));
             foreach ($actives as $active) {
-                if ($active->expires_at >= $active->created_at) {
+                if ($active->expires_at >= ($active->created_at  + 10)) {
                     //verify the account
                     $this->loginModel->activeUser($id, $phone_number, $this->input->post('v_code'));
                     $this->index();
@@ -117,7 +117,7 @@ class Portal extends CI_Controller
     }
 
 
-    public static function randomNumber($length = 6)
+    public static function randomNumber($length = 4)
     {
         $result = '';
 
