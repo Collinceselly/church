@@ -26,6 +26,7 @@ class LoginModel extends CI_Model
         $this->db->from('adults_members_records');
         $this->db->where('EMAIL_ADDRESS', $user);
         $this->db->where('password', $pass);
+        $this->db->where('active', 1);
         $this->db->limit(1);
 
         $query = $this->db->get();
@@ -38,6 +39,7 @@ class LoginModel extends CI_Model
             $this->db->from('adults_members_records');
             $this->db->where('PHONE_NUMBER', $user);
             $this->db->where('password', $pass);
+            $this->db->where('active', 1);
             $this->db->limit(1);
 
             $query = $this->db->get();
@@ -49,6 +51,7 @@ class LoginModel extends CI_Model
                 $this->db->from('adults_members_records');
                 $this->db->where('ID_CARD_NUMBER', $user);
                 $this->db->where('password', $pass);
+                $this->db->where('active', 1);
                 $this->db->limit(1);
 
                 $query = $this->db->get();
@@ -99,5 +102,49 @@ class LoginModel extends CI_Model
                 }
             }
         }
+    }
+
+    public function updateUserPassword($id, $data)
+    {
+        $this->db->where('id', $id);
+        return $this->db->update('adults_members_records', $data);
+    }
+
+    public function checkCodeExists($phone_number, $code)
+    {
+        $this->db->select('');
+        $this->db->where('phone_number', $phone_number);
+        $this->db->where('verification_code', $code);
+        $this->db->where('verified', 0);
+        $this->db->from('user_verification');
+
+        $query = $this->db->get();
+
+        if ($query->num_rows() >= 1) {
+            return false;
+        } else {
+             return true;
+        }
+    }
+
+    public function insertCode($data)
+    {
+        $this->db->insert('user_verification', $data);
+    }
+
+    public function activeUser($id, $phone)
+    {
+        $data = array('active' =>  1);
+        $this->db->where('id', $id);
+        $this->db->update('adults_members_records', $data);
+
+        return $this->updateVerificationCode($phone);
+    }
+
+    public function updateVerificationCode($phone)
+    {
+        $data = array('verified' =>  1);
+        $this->db->where('id', $id);
+        return $this->db->update('user_verification', $data);
     }
 }

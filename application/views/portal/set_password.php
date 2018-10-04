@@ -4,7 +4,7 @@
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 <head>
         <meta charset="utf-8" />
-        <title><?php $title ?></title>
+        <title>Portal Login</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta content="width=device-width, initial-scale=1" name="viewport" />
         <!-- BEGIN GLOBAL MANDATORY STYLES -->
@@ -32,9 +32,9 @@
         <div class="content">
             <!-- BEGIN LOGIN FORM -->
             <?php $attributes = array('class' => 'login-form');
-            echo form_open(base_url('Portal/'), $attributes); ?>
+            echo form_open(base_url('Portal/setPassword'), $attributes); ?>
            <!--  <form class="login-form" action="<?php// echo base_url('Portal/setPassword') ?>" method="post"> -->
-                <h3 class="form-title font-green">Activate Account</h3>
+                <h3 class="form-title font-green">Set Password</h3>
                 <div class="alert alert-danger">
                     <?php if ($this->session->flashdata('errorpassword')) :
                         echo "<p class='alert alert-danger'>" . $this->session->flashdata('errorpassword') . "</p>";
@@ -44,17 +44,21 @@
                 </div>
                 <div class="form-group">
                     <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
-                    <label class="control-label">Verification Code</label>
-                    <input class="form-control form-control-solid placeholder-no-fix" type="number" autocomplete="off" placeholder="Code" name="v_code" minlength="4"/>
-                </div>
+                    <label class="control-label">Password</label>
+                    <input class="form-control form-control-solid placeholder-no-fix" type="password" autocomplete="off" placeholder="Password" name="password" minlength="4"/>
+                  </div>
+                <div class="form-group">
+                    <label class="control-label">Password Confirm</label>
+                    <input class="form-control form-control-solid placeholder-no-fix" type="password" autocomplete="off" placeholder="Password Confirm" minlength="4" name="password_conf" />
+                  </div>
                   <input type="hidden" name="id" value="<?php echo $id;?>" /> 
-                  <input type="hidden" name="phone_number" value="<?php echo $phone_number ?>" />
-
+                  <input type="hidden" name="phone_number" value="<?php echo $phone_number ?>" /> 
                 <div class="form-actions">
-                    <button type="submit" class="btn green uppercase">Verify</button>
+                    <button type="submit" class="btn green uppercase">Submit</button>
                     <!-- a href="javascript:;" id="forget-password" class="forget-password">Forgot Password?</a> -->
                 </div>
             </form>
+          </div>
         </div>
         <div class="copyright"> <?php echo date("Y") ?> © kkkakaka. akakskasla. </div>
         <!-- BEGIN CORE PLUGINS -->

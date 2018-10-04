@@ -9,8 +9,8 @@ echo '<div class="container">';?>
 <div class="rows">
 			<div class="col-md-2"><a href="<?php echo base_url('finance/givings/getMembers'); ?>" class="btn btn-primary">Back</a></div>
 			<div class="col-md-10">
-					<?php if ($this->session->flashdata('giving_msg')): 
-										echo "<p class='alert alert-danger'>" . $this->session->flashdata('giving_msg') . "</p>";
+					<?php if ($this->session->flashdata('account_error')): 
+										echo "<p class='alert alert-danger'>" . $this->session->flashdata('account_error') . "</p>";
 								endif
 					?>
 					<span id="notifications"></span>
