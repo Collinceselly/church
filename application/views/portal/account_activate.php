@@ -45,13 +45,14 @@
                 <div class="form-group">
                     <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
                     <label class="control-label">Verification Code</label>
-                    <input class="form-control form-control-solid placeholder-no-fix" type="number" autocomplete="off" placeholder="Code" name="v_code" minlength="4"/>
+                    <input class="form-control form-control-solid placeholder-no-fix" type="number" autocomplete="off" placeholder="Code" name="v_code" id="code_entry" minlength="4"/>
                 </div>
                   <input type="hidden" name="id" value="<?php echo $id;?>" /> 
                   <input type="hidden" name="phone_number" value="<?php echo $phone_number ?>" />
 
                 <div class="form-actions">
                     <button type="submit" class="btn green uppercase">Verify</button>
+                    <progress value="0" max="10" id="progressBar" class="forget-password" id="forget-password"></progress>
                     <!-- a href="javascript:;" id="forget-password" class="forget-password">Forgot Password?</a> -->
                 </div>
             </form>
@@ -75,6 +76,7 @@
         <!-- END THEME GLOBAL SCRIPTS -->
         <!-- BEGIN PAGE LEVEL SCRIPTS -->
         <script src="<?php echo base_url(); ?>assets/assets/pages/scripts/login.min.js" type="text/javascript"></script>
+        <script src="<?php echo base_url(); ?>assets/js/account_verification_time.js" type="text/javascript"></script>
         <!-- END THEME LAYOUT SCRIPTS -->
         <script>
             $(document).ready(function()
