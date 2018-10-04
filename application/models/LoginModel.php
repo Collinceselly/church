@@ -121,7 +121,7 @@ class LoginModel extends CI_Model
         $query = $this->db->get();
 
         if ($query->num_rows() >= 1) {
-            return false;
+            return $query->result();
         } else {
              return true;
         }
@@ -132,17 +132,23 @@ class LoginModel extends CI_Model
         $this->db->insert('user_verification', $data);
     }
 
-    public function activeUser($id, $phone)
+    public function activeUser($id, $phone, $code)
     {
         $data = array('active' =>  1);
         $this->db->where('id', $id);
         $this->db->update('adults_members_records', $data);
 
-        return $this->updateVerificationCode($phone);
+        return $this->updateVerificationCode($phone, $code);
     }
 
-    public function updateVerificationCode($phone)
+    public function updateVerificationCode($phone, $code)
     {
+        $results = $this->checkCodeExists($phone, $code);
+        if ($results) {
+            foreach ($results as $result) {
+                $id = $result->id;
+            }
+        }
         $data = array('verified' =>  1);
         $this->db->where('id', $id);
         return $this->db->update('user_verification', $data);

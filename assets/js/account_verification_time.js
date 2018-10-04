@@ -7,7 +7,7 @@ var downloadTimer = setInterval(function(){
   }
 },1000);
 
-if (timeleft === 0) {
-	 //document.getElementById("code_entry").className = "form-control form-control-solid placeholder-no-fix disabled";
+if (downloadTimer === 0) {
+	 document.getElementById("code_entry").className = "form-control form-control-solid placeholder-no-fix disabled";
 	// $("input").prop('disabled', true);
 }

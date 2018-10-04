@@ -78,14 +78,16 @@ class Portal extends CI_Controller
         }
     }
 
-    public function activateAccount($id, $phone_number)
+    public function activateAccount($id = "", $phone_number = "")
     {
+        $id = $this->input->post('id');
+        $phone_number = $this->input->post('phone_number');
         if (isset($_POST['v_code'])) {
             $actives = $this->loginModel->checkCodeExists($phone_number, $this->input->post('v_code'));
             foreach ($actives as $active) {
                 if ($active->expires_at >= $active->created_at) {
                     //verify the account
-                    $this->loginModel->activeUser($id, $phone_number);
+                    $this->loginModel->activeUser($id, $phone_number, $this->input->post('v_code'));
                     $this->index();
                 } else {
                     //resend Code

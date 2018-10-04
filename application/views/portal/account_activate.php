@@ -4,7 +4,7 @@
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 <head>
         <meta charset="utf-8" />
-        <title><?php $title ?></title>
+        <title><?php echo $title ?></title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta content="width=device-width, initial-scale=1" name="viewport" />
         <!-- BEGIN GLOBAL MANDATORY STYLES -->
@@ -32,7 +32,7 @@
         <div class="content">
             <!-- BEGIN LOGIN FORM -->
             <?php $attributes = array('class' => 'login-form');
-            echo form_open(base_url('Portal/'), $attributes); ?>
+            echo form_open(base_url('Portal/activateAccount'), $attributes); ?>
            <!--  <form class="login-form" action="<?php// echo base_url('Portal/setPassword') ?>" method="post"> -->
                 <h3 class="form-title font-green">Activate Account</h3>
                 <div class="alert alert-danger">
