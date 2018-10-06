@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Children extends CI_Controller{
 	function __construct(){
 		parent:: __construct();
-		$this->load->model('clerk/children_model', 'm');
+		$this->load->model('clerk/childrenModel', 'm');
 	}
 
 	function index(){
