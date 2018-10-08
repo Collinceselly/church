@@ -27,7 +27,7 @@ class Portal extends CI_Controller
 
     public function index()
     {
-        $data['title'] = 'Portal| Home';
+        $data['title'] = 'Portal| Report';
         $this->load->view('portal/portal_home', $data);
     }
 
@@ -40,9 +40,9 @@ class Portal extends CI_Controller
 
         if ($checklogin) {
             $this->session->set_flashdata('account_succ', 'Successful Login');
-            $this->session->set_userdata($checklogin);
+            $this->session->set_userdata('user_details',$checklogin);
 
-            redirect(base_url('portal/Home'));
+            redirect(base_url('port/Report/viewAllContributions'));
         } else {
             $checkInactive = $this->loginModel->loginCheck($username, $password);
             if ($checkInactive) {
@@ -55,7 +55,7 @@ class Portal extends CI_Controller
                 $this->load->view('portal/set_password', $data);
             } else {
                 $this->session->set_flashdata('account_error', 'Create an Account with Us today');
-                $data['title'] = 'Portal| Home';
+                $data['title'] = 'Portal| Report';
                 $this->load->view('portal/portal_home', $data);
             }
         }

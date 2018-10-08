@@ -47,6 +47,21 @@ class IndividualTithesReportModel extends CI_Model
         return $query->result();
     }
 
+	public function MemberTithes($user, $date = '', $date2 = '')
+	{
+		if (empty($date) && empty($date2)) {
+			$this->db->select('*');
+			$this->db->where('GIVINGS_FK', $user);
+			$query = $this->db->get("adults_givings");
+		} else {
+			$this->db->select('*');
+			$this->db->where('GIVINGS_FK', $user);
+			$this->db->where("SABBATH_DATE BETWEEN '" .$date. "' AND '". $date2."'", "", false);
+			$query = $this->db->get("adults_givings");
+		}
+		return $query->result();
+	}
+
     public function getAllMembers()
     {
         $this->db->select("UPPER(CONCAT((FIRST_NAME),(' '),(OTHER_NAMES))) AS name, ID");
@@ -110,6 +125,25 @@ class IndividualTithesReportModel extends CI_Model
         }
     }
 
+	public function ContributionsMonthly($user, $date, $date2)
+	{
+		$q = "SELECT SUM(TITHES) AS TITHES,
+                SUM(COMBINED_OFFERING) AS COMBINED_OFFERING,
+                SUM(CAMP_OFFERING) AS CAMP_OFFERING,
+                SUM(CHURCH_BUILDING) AS CHURCH_BUILDING,
+                SUM(CONFERENCE) AS CONFERENCE,
+                SUM(LOCAL_CHURCH) AS LOCAL_CHURCH,
+                SUM(STATION_DEVELOPMENT) AS STATION_DEVELOPMENT,
+                DATE_FORMAT(SABBATH_DATE, '%m-%Y') AS SABBATH_DATE, NAME FROM adults_givings WHERE GIVINGS_FK = '$user' AND DATE_FORMAT(SABBATH_DATE, '%m-%Y') BETWEEN '$date' and '$date2' GROUP BY DATE_FORMAT(SABBATH_DATE, '%m-%Y')";
+
+		$query = $this->db->query($q);
+		if ($query->num_rows()>0) {
+			return $query->result();
+		} else {
+			return false;
+		}
+	}
+
     public function viewContributionsYearly($user, $date, $date2)
     {
         $q = "SELECT SUM(TITHES) AS TITHES,
@@ -128,6 +162,25 @@ class IndividualTithesReportModel extends CI_Model
             return false;
         }
     }
+
+	public function ContributionsYearly($user, $date, $date2)
+	{
+		$q = "SELECT SUM(TITHES) AS TITHES,
+                SUM(COMBINED_OFFERING) AS COMBINED_OFFERING,
+                SUM(CAMP_OFFERING) AS CAMP_OFFERING,
+                SUM(CHURCH_BUILDING) AS CHURCH_BUILDING,
+                SUM(CONFERENCE) AS CONFERENCE,
+                SUM(LOCAL_CHURCH) AS LOCAL_CHURCH,
+                SUM(STATION_DEVELOPMENT) AS STATION_DEVELOPMENT,
+                DATE_FORMAT(SABBATH_DATE, '%Y') AS SABBATH_DATE, NAME FROM adults_givings WHERE GIVINGS_FK = '$user' AND DATE_FORMAT(SABBATH_DATE, '%Y') BETWEEN '$date' and '$date2' GROUP BY DATE_FORMAT(SABBATH_DATE, '%Y')";
+
+		$query = $this->db->query($q);
+		if ($query->num_rows()>0) {
+			return $query->result();
+		} else {
+			return false;
+		}
+	}
 
     public function firstQuater($data)
     {
