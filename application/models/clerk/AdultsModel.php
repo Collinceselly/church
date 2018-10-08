@@ -21,6 +21,7 @@ class AdultsModel extends CI_Model{
 		   'CHURCH_LEADERSHIP_POST'=>$this->input->post('text_post'),
 		   'PHONE_NUMBER'=>$this->input->post('text_phone'),
 		   'EMAIL_ADDRESS'=>$this->input->post('text_email'),
+		   'MARITAL_STATUS'=>$this->input->post('text_marital'),
 		   'RESIDENTIAL_ADDRESS'=>$this->input->post('text_address'),
 
 		);
@@ -51,6 +52,7 @@ class AdultsModel extends CI_Model{
 		   'CHURCH_LEADERSHIP_POST'=>$this->input->post('text_post'),
 		   'PHONE_NUMBER'=>$this->input->post('text_phone'),
 		   'EMAIL_ADDRESS'=>$this->input->post('text_email'),
+		   'MARITAL_STATUS'=>$this->input->post('text_marital'),
 		   'RESIDENTIAL_ADDRESS'=>$this->input->post('text_address'),
 
 		);

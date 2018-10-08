@@ -75,10 +75,11 @@ class IndividualTithesReport extends CI_Controller
         if (isset($_POST['user'])) {
             $result = $this->report_model->viewMonthly($user, $date_month1, $date_month2, $report_type);
             $member = array();
+			if ($result) {
             foreach ($result as $key => $value) {
                 $member[$value->SABBATH_DATE] = $value->$report_type;
             }
-            if ($result) {
+
                 $data['result'] = $result;
                 $data['memberstat'] = $member;
                 $data['contribution_type'] = $report_type;
@@ -145,19 +146,17 @@ class IndividualTithesReport extends CI_Controller
                 foreach ($result as $key => $value) {
                     $member[$value->SABBATH_DATE] = $value->$report_type;
                 }
-                if ($result) {
-                    $data['result'] = $result;
-                    $data['memberstat'] = $member;
-                    $data['contribution_type'] = $report_type;
-                    $this->load->view('reports/combined_contribution', $data);
-                } else {
-                    $data['result'] = array();
-                    $data['result_display'] = "No record found";
-                    $data['contribution_type'] = "";
-                    $this->session->set_flashdata('report_missing', 'No Record Found For Such User');
-                    $this->load->view('reports/combined_contribution', $data);
-                }
-            }
+				$data['result'] = $result;
+				$data['memberstat'] = $member;
+				$data['contribution_type'] = $report_type;
+				$this->load->view('reports/combined_contribution', $data);
+			} else {
+				$data['result'] = array();
+				$data['result_display'] = "No record found";
+				$data['contribution_type'] = "";
+				$this->session->set_flashdata('report_missing', 'No Record Found For Such User');
+				$this->load->view('reports/combined_contribution', $data);
+			}
         } else {
             $data['result'] = array();
             $data['memberstat'] = array();
@@ -167,7 +166,7 @@ class IndividualTithesReport extends CI_Controller
 
     public function viewContributions()
     {
-        
+
         $date = $this->input->post('date_sabbath');
         $user = $this->input->post('user');
         $date2 = $this->input->post('date_sabbath2');
@@ -191,20 +190,17 @@ class IndividualTithesReport extends CI_Controller
                     $member['LOCAL_CHURCH'] += (!empty($value['LOCAL_CHURCH'])) ? $value['LOCAL_CHURCH'] : 0 ;
                     $member['STATION_DEVELOPMENT'] += (!empty($value['STATION_DEVELOPMENT'])) ? $value['STATION_DEVELOPMENT'] : 0 ;
                 }
-
-                if ($result) {
-                    $data['result'] = $result;
-                    $data['memberstat'] = $member;
-                    $data['contribution_type'] = "";
-                    $this->load->view('reports/all_contributions', $data);
-                } else {
-                    $data['result'] = array();
-                    $data['result_display'] = "No record found";
-                    $data['contribution_type'] = "";
-                    $this->session->set_flashdata('report_missing', 'No Record Found For Such User');
-                    $this->load->view('reports/all_contributions', $data);
-                }
-            }
+				$data['result'] = $result;
+				$data['memberstat'] = $member;
+				$data['contribution_type'] = "";
+				$this->load->view('reports/all_contributions', $data);
+			} else {
+				$data['result'] = array();
+				$data['result_display'] = "No record found";
+				$data['contribution_type'] = "";
+				$this->session->set_flashdata('report_missing', 'No Record Found For Such User');
+				$this->load->view('reports/all_contributions', $data);
+			}
         } else {
             $data['result'] = array();
             $data['memberstat'] = array();
@@ -214,7 +210,6 @@ class IndividualTithesReport extends CI_Controller
 
     public function viewContributionsMonthly()
     {
-        
         $date = $this->input->post('date_monthly');
         $user = $this->input->post('user');
         $date2 = $this->input->post('date_monthly2');
@@ -238,20 +233,18 @@ class IndividualTithesReport extends CI_Controller
                     $member['LOCAL_CHURCH'] += (!empty($value['LOCAL_CHURCH'])) ? $value['LOCAL_CHURCH'] : 0 ;
                     $member['STATION_DEVELOPMENT'] += (!empty($value['STATION_DEVELOPMENT'])) ? $value['STATION_DEVELOPMENT'] : 0 ;
                 }
+				$data['result'] = $result;
+				$data['memberstat'] = $member;
+				$data['contribution_type'] = "";
+				$this->load->view('reports/all_contributions', $data);
+			} else {
+				$data['result'] = array();
+				$data['result_display'] = "No record found";
+				$data['contribution_type'] = "";
+				$this->session->set_flashdata('report_missing', 'No Record Found For Such User');
+				$this->load->view('reports/all_contributions', $data);
+			}
 
-                if ($result) {
-                    $data['result'] = $result;
-                    $data['memberstat'] = $member;
-                    $data['contribution_type'] = "";
-                    $this->load->view('reports/all_contributions', $data);
-                } else {
-                    $data['result'] = array();
-                    $data['result_display'] = "No record found";
-                    $data['contribution_type'] = "";
-                    $this->session->set_flashdata('report_missing', 'No Record Found For Such User');
-                    $this->load->view('reports/all_contributions', $data);
-                }
-            }
         } else {
             $data['result'] = array();
             $data['memberstat'] = array();
@@ -286,18 +279,16 @@ class IndividualTithesReport extends CI_Controller
                     $member['STATION_DEVELOPMENT'] += (!empty($value['STATION_DEVELOPMENT'])) ? $value['STATION_DEVELOPMENT'] : 0 ;
                 }
 
-                if ($result) {
-                    $data['result'] = $result;
-                    $data['memberstat'] = $member;
-                    $data['contribution_type'] = "";
-                    $this->load->view('reports/all_contributions', $data);
-                } else {
-                    $data['result'] = array();
-                    $data['result_display'] = "No record found";
-                    $data['contribution_type'] = "";
-                    $this->session->set_flashdata('report_missing', 'No Record Found For Such User');
-                    $this->load->view('reports/all_contributions', $data);
-                }
+				$data['result'] = $result;
+				$data['memberstat'] = $member;
+				$data['contribution_type'] = "";
+				$this->load->view('reports/all_contributions', $data);
+			} else {
+				$data['result'] = array();
+				$data['result_display'] = "No record found";
+				$data['contribution_type'] = "";
+				$this->session->set_flashdata('report_missing', 'No Record Found For Such User');
+				$this->load->view('reports/all_contributions', $data);
             }
         } else {
             $data['result'] = array();

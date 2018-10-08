@@ -66,15 +66,15 @@ class Givings extends CI_Controller
 
     public function submitRecord()
     {
-        $members_contributing = $this->input->post('text_fk');
+        //$members_contributing = $this->input->post('text_fk');
         $result = $this->m->submitRecord();
         if ($result) {
-            $this->session->set_flashdata('giving_msg', 'Record added successfully');
+            $this->session->set_flashdata('success_msg', 'Record added successfully');
         } else {
-            $this->session->set_flashdata('giving_msg_error', 'Fail to add records');
+            $this->session->set_flashdata('error_msg', 'Fail to add records');
         }
 
-        $this->addGivings($members_contributing);
+        $this->getMembers();
     }
 
     public function checkRecord()

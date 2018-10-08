@@ -9,10 +9,14 @@ echo '<div class="container">';?>
 <div class="rows">
 			<div class="col-md-2"><a href="<?php echo base_url('finance/givings/getMembers'); ?>" class="btn btn-primary">Back</a></div>
 			<div class="col-md-10">
-					<?php if ($this->session->flashdata('account_error')): 
-										echo "<p class='alert alert-danger'>" . $this->session->flashdata('account_error') . "</p>";
+					<?php if ($this->session->flashdata('success_msg')):
+										echo "<p class='alert alert-danger'>" . $this->session->flashdata('success_msg') . "</p>";
 								endif
 					?>
+				<?php if ($this->session->flashdata('error_msg')):
+					echo "<p class='alert alert-danger'>" . $this->session->flashdata('error_msg') . "</p>";
+				endif
+				?>
 					<span id="notifications"></span>
 			</div>
 <div class="col-md-12">
@@ -158,8 +162,6 @@ echo '<div class="container">';?>
               let text_date = {'text_date': $('#text_date').val()};
               let text_user = {'text_user': $('#text_user').val()};
               let today = moment().format('YYYY-MM-DD');
-              console.log(today);
-              console.log($('#text_date').val());
               if ($('#text_date').val() <= today){
 	              $.ajax({
 	              	url: '<?php echo base_url("finance/givings/checkRecord"); ?>',
@@ -174,7 +176,7 @@ echo '<div class="container">';?>
 	              			document.getElementById("notifications").innerHTML="<p class='alert alert-danger'>Record With that date already exists for " + $("#text_fname").val().toUpperCase() + " "+ "</p>";
 	              		} else if (response.status == 0) {
 	              			$.post('<?php echo base_url("finance/givings/submitRecord") ?>', $('form#givingsForm').serialize(), function (data) {
-	                        location.reload();
+	                        location.assign("<?php echo base_url('finance/givings/getMembers');?>");
 	                    });
 	              		}
 	              	}

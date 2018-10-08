@@ -20,7 +20,7 @@ class Portal extends CI_Controller
         $this->load->library('form_validation');
         $this->load->helper(array('form', 'url'));
         
-        self::$username = "";
+        self::$username = "collinsto";
         // self::$password= "";
         self::$apikey = "e0ce12a49718ee1bb5f3ec6804580de2e5b4395ed782b914b847e145f4a36d3c";
     }
@@ -41,6 +41,8 @@ class Portal extends CI_Controller
         if ($checklogin) {
             $this->session->set_flashdata('account_succ', 'Successful Login');
             $this->session->set_userdata($checklogin);
+
+            redirect(base_url('portal/Home'));
         } else {
             $checkInactive = $this->loginModel->loginCheck($username, $password);
             if ($checkInactive) {

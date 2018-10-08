@@ -27,7 +27,7 @@ class Adults extends CI_Controller{
 			$this->session->set_flashdata('error_msg', 'Fail to add records');
 
 		}
-		redirect(base_url('clerk/adults_controller/index'));
+		redirect(base_url('clerk/Adults/index'));
 	}
 	public function edit($id){
 		$data['members'] = $this->m->getMembersById($id);
@@ -43,7 +43,7 @@ class Adults extends CI_Controller{
 			$this->session->set_flashdata('error_msg', 'Fail to update records');
 
 		}
-		redirect(base_url('clerk/adults_controller/index'));
+		redirect(base_url('clerk/Adults/index'));
 	}
 	public function delete($id){
 		$result = $this->m->delete($id);
@@ -54,7 +54,7 @@ class Adults extends CI_Controller{
 
 		}
 
-		redirect(base_url('clerk/adults_controller/index'));
+		redirect(base_url('clerk/Adults/index'));
 	}
 	
 }
