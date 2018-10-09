@@ -178,6 +178,7 @@ class IndividualTithesReportModel extends CI_Model
         $query = $this->db->get("adults_givings");
         
         if ($query->num_rows()>0) {
+            // var_dump($query->result_array());exit();
             return $query->result_array();
         } else {
             return false;

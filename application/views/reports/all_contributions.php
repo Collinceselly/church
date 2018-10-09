@@ -15,6 +15,11 @@ $total = 0;?>
   </div>
 <?php } ?>
 
+<style>
+  .modal {display:table;}
+  /*.body {display:table-cell; vertical-align:middle; text-align:center;}*/
+</style>
+
 <div class="col-lg-12 offset-lg-6">
    <p class="pull-right" style="padding-right: 3px;">
       <button type="button" class="btn btn-danger btn-sm" id="bt_by_year">By Year</button>
@@ -27,9 +32,46 @@ $total = 0;?>
     <p class="pull-right" style="padding-right: 3px;">
       <button type="button" class="btn btn-info btn-sm" id="bt_by_sabath_date">By Date</button>
     </p>
-    
-   
+    <p class="pull-right" style="padding-right: 3px;">
+      <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#filterQuarter" id="bt_by_quarter">Quarterly</button>
+    </p>
 </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="filterQuarter" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Filter By Quarter</h4>
+        </div>
+        <div class="modal-body">
+          <form class="form-horizontal" action="<?php base_url('reports/individualTithesReport/viewContributions')?>" method="post">
+            <div class="row control-group">
+              <div class="form-group col-xs-12 floating-label-form-group controls">
+                <label for="quarter">Select Quarter:</label>
+                <select class="form-control" name="quarter_selection">
+                  <option value="first_quarter">First Quarter</option>
+                  <option value="second_quarter">Second Quarter</option>
+                  <option value="third_quarter">Third Quarter</option>
+                </select>
+              </div>
+            </div>
+             <div class="form-group">
+              <label for="user">Member Name:</label>
+              <input type="user" class="form-control" id="user" placeholder="Enter Name of User" name="user" required="required">
+            </div>
+            <button type="submit" class="btn btn-danger">Submit</button>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
 <!-- search by Sabbath Date -->
 
@@ -241,7 +283,7 @@ $total = 0;?>
         var dataSource = $.parseJSON(response);
         console.log(dataSource);
         $("#user").autocomplete({
-          source: dataSource
+          source: dataSource,
         });
       });
 

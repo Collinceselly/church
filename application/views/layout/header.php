@@ -54,5 +54,12 @@
 <div class="navbar navbar-default">
 	<div class="container">
 		<h2><span class="glyphicon glyphicon-home"></span>&nbsp;WELCOME</h2>
+
+		<p>
+			<?php if (isset($_SESSION['user_details'])) {?>
+				<a href="<?php echo base_url('Portal/logout'); ?>"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a>
+			<?php  } ?>
+		</p>
 	</div>
+
 </div>

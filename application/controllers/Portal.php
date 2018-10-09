@@ -40,7 +40,7 @@ class Portal extends CI_Controller
 
         if ($checklogin) {
             $this->session->set_flashdata('account_succ', 'Successful Login');
-            $this->session->set_userdata('user_details',$checklogin);
+            $this->session->set_userdata('user_details', $checklogin);
 
             redirect(base_url('port/Report/getMyContributions'));
         } else {
@@ -149,5 +149,11 @@ class Portal extends CI_Controller
         } else {
             $this->checkIfRandExists($phone_number);
         }
+    }
+
+    public function logout()
+    {
+        $this->session->sess_destroy();
+        redirect(base_url('Portal/index'));
     }
 }

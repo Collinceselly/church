@@ -89,74 +89,73 @@ class Report extends CI_Controller {
 		}
 	}
 
-	public static function getCurrentQuater($quarter_selection = '')
-	{
-		if (date("m") === '01' || date("m") === '02' || date("m") === '03' || date("m") === '04' || $quarter_selection == "first_quarter") {
-			return array('date1' => date("Y") .'-01-01', 'date2' => date("Y"). '-04-30', "quarter" => 1);
-		}
-		if (date("m") === '05' || date("m") === '06' || date("m") === '07' || date("m") === '08' || $quarter_selection == "second_quarter") {
-			return array('date1' => date("Y") .'-05-01', 'date2' => date("Y"). '-08-31', "quarter" => 2);
-		}
-		if (date("m") === '09' || date("m") === '10' || date("m") === '11' || date("m") === '12' || $quarter_selection == "third_quarter") {
-			return array('date1' => date("Y") .'-09-01', 'date2' => date("Y"). '-12-31', "quarter" => 3);
-		}
-	}
+    public static function getCurrentQuater($quarter_selection = '')
+    {
+        if (date("m") === '01' || date("m") === '02' || date("m") === '03' || date("m") === '04' || $quarter_selection == "first_quarter") {
+            return array('date1' => date("Y") .'-01-01', 'date2' => date("Y"). '-04-30', "quarter" => 1);
+        }
+        if (date("m") === '05' || date("m") === '06' || date("m") === '07' || date("m") === '08' || $quarter_selection == "second_quarter") {
+            return array('date1' => date("Y") .'-05-01', 'date2' => date("Y"). '-08-31', "quarter" => 2);
+        }
+        if (date("m") === '09' || date("m") === '10' || date("m") === '11' || date("m") === '12' || $quarter_selection == "third_quarter") {
+            return array('date1' => date("Y") .'-09-01', 'date2' => date("Y"). '-12-31', "quarter" => 3);
+        }
+    }
 
-	public function getMyContributions()
-	{
-    $results = array();
-    $member = array();
-    $report_type = strtoupper($this->input->post('report_type'));
+    public function getMyContributions()
+    {
+        $results = array();
+        $member = array();
+        $report_type = strtoupper($this->input->post('report_type'));
 
-		if (isset($_POST['date_sabbath']) && isset($_POST['date_sabbath2'])) {
-			if ($this->input->post('by_date') == 'by_date') {
-				foreach ($_SESSION['user_details'] as $user_detail) {
-					$results = $this->report_model->memberTithes($user_detail->ID, $this->input->post('date_sabbath'), $this->input->post('date_sabbath2'));
-				}
-			}
-		}
-		if (isset($_POST['date_monthly']) && isset($_POST['date_monthly2'])) {
-			if ($this->input->post('by_month') == 'by_month') {
-				foreach ($_SESSION['user_details'] as $user_detail) {
-					$results = $this->report_model->membersMonthly($user_detail->ID, $this->input->post('date_monthly'), $this->input->post('date_monthly2'),$report_type );
-				}
-			}
-		}
-		if (isset($_POST['date_yearly']) && isset($_POST['date_yearly2'])) {
-			if ($this->input->post('by_year') == 'by_year'){
-				foreach($_SESSION['user_details'] as $user_detail) {
-					$results = $this->report_model->memberYearly($user_detail->ID, $this->input->post('date_yearly'), $this->input->post('date_yearly2'), $report_type);
-				}
-			}
-		}
-		if (isset($_POST['quarter_selection'])) {
-				$currentQuarter = Report::getCurrentQuater($this->input->post('quarter_selection'));
-
-				foreach ($_SESSION['user_details'] as $user_detail) {
-            $results = $this->report_model->memberTithes($user_detail->ID, $currentQuarter['date1'], $currentQuarter['date2']);
-          }
-          if (empty($results)) {
-          	$this->session->set_flashdata('report_missing', 'No Record Found For that Quarter');
-          }
+        if (isset($_POST['date_sabbath']) && isset($_POST['date_sabbath2'])) {
+            if ($this->input->post('by_date') == 'by_date') {
+                foreach ($_SESSION['user_details'] as $user_detail) {
+                    $results = $this->report_model->memberTithes($user_detail->ID, $this->input->post('date_sabbath'), $this->input->post('date_sabbath2'));
+                }
+            }
+        }
+        if (isset($_POST['date_monthly']) && isset($_POST['date_monthly2'])) {
+            if ($this->input->post('by_month') == 'by_month') {
+                foreach ($_SESSION['user_details'] as $user_detail) {
+                    $results = $this->report_model->membersMonthly($user_detail->ID, $this->input->post('date_monthly'), $this->input->post('date_monthly2'), $report_type);
+                }
+            }
+        }
+        if (isset($_POST['date_yearly']) && isset($_POST['date_yearly2'])) {
+            if ($this->input->post('by_year') == 'by_year') {
+                foreach ($_SESSION['user_details'] as $user_detail) {
+                    $results = $this->report_model->memberYearly($user_detail->ID, $this->input->post('date_yearly'), $this->input->post('date_yearly2'), $report_type);
+                }
+            }
+        }
+        if (isset($_POST['quarter_selection'])) {
+            $currentQuarter = Report::getCurrentQuater($this->input->post('quarter_selection'));
+            foreach ($_SESSION['user_details'] as $user_detail) {
+                $results = $this->report_model->memberTithes($user_detail->ID, $currentQuarter['date1'], $currentQuarter['date2']);
+            }
+            if (empty($results)) {
+                $this->session->set_flashdata('report_missing', 'No Record Found For that Quarter');
+            }
         }
 
-		if ($results) {
-			foreach ($results as $key => $value) {
-				$member[$value->SABBATH_DATE] = $value->$report_type;
-			}
+        if ($results) {
+            foreach ($results as $key => $value) {
+                $member[$value->SABBATH_DATE] = $value->$report_type;
+            }
 
-			$data['result'] = $results;
-			$data['memberstat'] = $member;
-			$data['contribution_type'] = $report_type;
-			$this->load->view('portal/individual_reports', $data);
+            $data['result'] = $results;
+            $data['memberstat'] = $member;
+            $data['contribution_type'] = $report_type;
+            $this->load->view('portal/individual_reports', $data);
 
-		} else {
-			$data['result'] = array();
-			$data['result_display'] = "No record found";
-			$data['contribution_type'] = "";
-			$data['memberstat'] = array();
-//			$this->session->set_flashdata('report_missing', 'No Record Found For Such User');
-			$this->load->view('portal/individual_reports', $data);
-		}
-	}
+        } else {
+            $data['result'] = array();
+            $data['result_display'] = "No record found";
+            $data['contribution_type'] = "";
+            $data['memberstat'] = array();
+            //$this->session->set_flashdata('report_missing', 'No Record Found For Such User');
+            $this->load->view('portal/individual_reports', $data);
+        }
+    }
 }
