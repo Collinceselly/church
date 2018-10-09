@@ -42,7 +42,7 @@ class Portal extends CI_Controller
             $this->session->set_flashdata('account_succ', 'Successful Login');
             $this->session->set_userdata('user_details',$checklogin);
 
-            redirect(base_url('port/Report/viewAllContributions'));
+            redirect(base_url('port/Report/getMyContributions'));
         } else {
             $checkInactive = $this->loginModel->loginCheck($username, $password);
             if ($checkInactive) {
