@@ -15,17 +15,20 @@ $total = 0;?>
   </div>
 <?php } ?>
 
+<div class="h1"><h3>Treasurer <?php echo $this->session->userdata('FIRST_NAME')?></h3></div>
+<div class="logout"><a href="<?php echo base_url('TemplateController/index')?>">LOGOUT</a></div>
+
 <div class="col-lg-12 offset-lg-6">
    <p class="pull-right" style="padding-right: 3px;">
       <button type="button" class="btn btn-danger btn-sm" id="bt_by_year">By Year</button>
     </p>
 
     <p class="pull-right" style="padding-right: 3px;">
-      <button type="button" class="btn btn-warning btn-sm" id="bt_by_month">By Month</button>
+      <button type="button" class="btn btn-warning btn-sm" id="bt_by_month">By Month Range</button>
     </p>
 
     <p class="pull-right" style="padding-right: 3px;">
-      <button type="button" class="btn btn-info btn-sm" id="bt_by_sabath_date">By Date</button>
+      <button type="button" class="btn btn-info btn-sm" id="bt_by_sabath_date">By Date Range</button>
     </p>
     
    

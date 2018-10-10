@@ -1,7 +1,7 @@
-<h3>Add Members</h3>
-<a href="<?php echo base_url('clerk/adults/index'); ?>" class="btn btn-primary">Back</a>
+<h3>Add Officials</h3>
+<a href="<?php echo base_url('clerk/OfficialsRecords/index'); ?>" class="btn btn-primary">Back</a>
 <div class ="form_content">
-<form action="<?php echo base_url('clerk/adults/submit') ?>" method="post" class="form-horizontal">
+<form action="<?php echo base_url('clerk/OfficialsRecords/submit') ?>" method="post" class="form-horizontal">
 	<div class ="form-group">
 		<label for="idno" class="class-md-2 text-right" >ID Card Number</label>
 		<div class="col-md-3">
@@ -36,7 +36,7 @@
 	<div class ="form-group">
 		<label for="post" class="class-md-2 text-right">Membership by</label>
 		<div class="col-md-3">
-			<select class="class-md-2 text-right" id="post" name="text_post">
+			<select class="class-md-2 text-right" id="post" name="text_membership">
 				<option>---select from the list below----</option>
 			<option value="Member">Baptism</option>
 			<option value="Clerk">Transfer</option>
@@ -70,7 +70,20 @@
 		</select>	
 	</div>
 </div>
-</div>
+<div class="form-group">
+		<label for="post" class="class-md-2 text-right">Responsibility</label>
+		<div class="col-md-3">
+		<select class="class-md-2 text-right" id="marital" name="text_resp">
+			<option value="">---select from the list below----</option>
+			<option value="Head Elder">Head Elder</option>
+			<option value="Elder">Elder</option>
+			<option value="Pastor">Pastor</option>
+			<option value="Clerk">Clerk</option>
+			<option value="Treasurer">Treasurer</option>
+			<option value="Deacon">Deacon</option>
+			<option value="Deaconess">Deaconess</option>
+		</select>	
+	</div>
 		<div class ="form-group">
 		<label for="address" class="class-md-2 text-right">Place of Residence</label>
 		<div class="col-md-3">
@@ -83,6 +96,7 @@
 			<input type="submit" name="btnSave" class="btn btn-primary" value="Save">
 		</div>
 	</div>
+	
 	
 </form>
 </div>

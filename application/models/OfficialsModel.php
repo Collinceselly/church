@@ -14,7 +14,7 @@ parent::__construct();
 
 function form_insert($data){
 // Inserting in Table(students) of Database(college)
-$this->db->insert('officials', $data);
+$this->db->insert('officials_records', $data);
 }
 }
 ?>

@@ -7,6 +7,8 @@
 require_once __DIR__.'/../layout/header.php';
 echo '<div class="container">';?>
 <div class="rows">
+	<div class="h1"><h3>Treasurer <?php echo $this->session->userdata('FIRST_NAME')?></h3></div>
+	<div class="logout"><a href="<?php echo base_url('TemplateController/index')?>">LOGOUT</a></div>
 			<div class="col-md-2"><a href="<?php echo base_url('finance/givings/getMembers'); ?>" class="btn btn-primary">Back</a></div>
 			<div class="col-md-10">
 					<?php if ($this->session->flashdata('account_error')): 
@@ -18,7 +20,7 @@ echo '<div class="container">';?>
 <div class="col-md-12">
 			<form action="#" method="post" id="givingsForm" class="form-horizontal">
 					<div class="col-md-5">
-					<h3>Members Details</h3>
+					<h3>Member information</h3>
 					<input type="hidden" name="text_hidden" value="<?php echo $members->ID;?>" >
 					<div class ="form-group">
 						<label for="fname" class="class-md-2 text-right">ID Card Number</label>
@@ -52,7 +54,7 @@ echo '<div class="container">';?>
 					</div>
 				</div>
 				<div class="col-md-7">
-          <h3>Add Offerings in KShs</h3>
+          <h3>Givings and Offerings in KShs</h3>
 					<div class ="form-group">
 						<label for="cfname" class="class-md-2 text-right">Sabbath date</label>
 						<div class="col-md-3">

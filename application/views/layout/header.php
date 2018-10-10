@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>members</title>
+    <title>church app</title>
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/bootstrap.min.css') ?>">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/dataTables.min.css') ?>">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/bootstrap-theme.min.css') ?>">
@@ -49,10 +49,28 @@
 		text-align: right;
 		margin-right: 970px;
 	}
+	.R{
+		text-align: center;
+	}
+	.h1{
+		text-align: right;
+		align-content: center;
+		color: black;
+		font-weight: 25px;
+	}
+	.logout{
+		text-align: right;
+		font-size: 15px;
+		margin-right: 100px;
+		margin-top: 5px;
+	}
+	body{
+		background-color: #99ff99;
+	}
 </style>
 <body>
-<div class="navbar navbar-default">
+<!--<div class="navbar navbar-default">
 	<div class="container">
 		<h2><span class="glyphicon glyphicon-home"></span>&nbsp;WELCOME</h2>
 	</div>
-</div>
+</div>-->

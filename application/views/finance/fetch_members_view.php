@@ -1,5 +1,6 @@
-
-	<h3>Members list</h3>
+<!DOCTYPE html>
+	
+	<div class="R"><h3>Members Register</h3></div>
 
 	<?php
 	if($this->session->flashdata('success_msg')){
@@ -24,7 +25,9 @@
 	 <?php
 	}
 	?>
-		<a href="<?php echo base_url('modules/clerk/index'); ?>" class="btn btn-primary">Back</a>
+	<div class="h1"><h3>Treasurer <?php echo $this->session->userdata('FIRST_NAME')?></h3></div>
+	<div class="logout"><a href="<?php echo base_url('TemplateController/index')?>">LOGOUT</a></div>
+		<a href="<?php echo base_url('finance/givings/index'); ?>" class="btn btn-primary">Back</a>
 	<!--<div class="search_button"><a href="<?php echo base_url('finance/givings/search'); ?>" class="glyphicon glyphicon-search">Search Member</a></div>-->
 	<table class="table table-striped table-hover table-responsive table-condensed" id="myTable">
 		<thead>

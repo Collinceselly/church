@@ -10,6 +10,9 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <style type="text/css">
+body{
+	background-color: #99ff99;
+}
 	.h1{
 		text-align: center;
 		align-content: center;
@@ -83,16 +86,24 @@
 .pos{
 	text-align: center;
 }
+.h1{
+	text-align: right;
+		align-content: center;
+		color: black;
+		font-weight: 25px;
+}
 </style>
 <body>
-	<a href="<?php echo base_url('clerk/visitors_controller/index'); ?>" class="btn btn-primary">Back</a>
-	<div class="p1"><p>Choose the report creterion from the dropdown</p></div>
+	<div class="h1"><h3>Treasurer <?php echo $this->session->userdata('FIRST_NAME')?></h3></div>
+	<div class="logout"><a href="<?php echo base_url('TemplateController/index')?>">LOGOUT</a></div>
+	<a href="<?php echo base_url('modules/treasury/index'); ?>" class="btn btn-primary">Back</a>
+	<div class="p1"><p>Choose report</p></div>
 <div class="pos">
 	<div class="dropdown"><br>
-  <div class="members_record"><button class="btn btn-primary">WHEN</button></div>
+  <div class="members_record"><button class="btn btn-primary">ON</button></div>
   <div class="dropdown-content">
     <a href="<?php echo base_url('reports/individualTithesReport/viewContributions'); ?>">ALL CONTIRBUTIONS</a>
-    <a href="<?php echo base_url('reports/individualTithesReport/viewTithes'); ?>">PER CONTRIBUTIONS</a>
+    <a href="<?php echo base_url('reports/individualTithesReport/viewTithes'); ?>">SPECIFIC CONTRIBUTIONS TYPE</a>
    <!--  <a href="<?php //echo base_url('reports/individualTithesReport/selectMonth'); ?>">MONTHLY REPORT</a>
     <a href="<?php //echo base_url('reports/individualTithesReport/selectQuater'); ?>">QUATER REPORT</a>
     <a href="<?php //echo base_url('reports/individualTithesReport/selectYear'); ?>">ANNUAL</a> -->

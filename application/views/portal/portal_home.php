@@ -34,7 +34,7 @@
         <!-- BEGIN LOGIN -->
         <div class="content">
             <!-- BEGIN LOGIN FORM -->
-            <form class="login-form" action="<?php echo base_url('Portal/login') ?>" method="post">
+            <form class="login-form" action="<?php echo base_url('Login/process_login') ?>" method="post">
                 <h3 class="form-title font-green">Sign In</h3>
                 <div class="alert alert-danger display-hide">
                     <button class="close" data-close="alert"></button>
@@ -99,10 +99,9 @@
                 <h3 class="font-green">Sign Up</h3>
                 <p class="hint"> Enter your personal details below: </p>
                 <div class="form-group">
-                    <label class="control-label visible-ie8 visible-ie9">Full Name</label>
-                    <input class="form-control placeholder-no-fix" type="text" placeholder="Full Name" name="fullname" /> </div>
-                <div class="form-group">
-                    <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
+                    <label class="control-label visible-ie8 visible-ie9">ID Number</label>
+                    <input class="form-control placeholder-no-fix" type="text" placeholder="e.g 12345678" name="text_id" /> </div>
+               <div class="form-group">
                     <label class="control-label visible-ie8 visible-ie9">Email</label>
                     <input class="form-control placeholder-no-fix" type="text" placeholder="Email" name="email" /> </div>
                 <div class="form-group">
@@ -354,7 +353,7 @@
                 <p class="hint"> Enter your account details below: </p>
                 <div class="form-group">
                     <label class="control-label visible-ie8 visible-ie9">Username</label>
-                    <input class="form-control placeholder-no-fix" type="text" autocomplete="off" placeholder="Username" name="username" /> </div>
+                    <input class="form-control placeholder-no-fix" type="text" autocomplete="off" placeholder="Username" name="username" /> </div>-->
                 <div class="form-group">
                     <label class="control-label visible-ie8 visible-ie9">Password</label>
                     <input class="form-control placeholder-no-fix" type="password" autocomplete="off" id="register_password" placeholder="Password" name="password" /> </div>

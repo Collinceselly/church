@@ -83,7 +83,7 @@ body{
 
 </style>
 <body>
-	<div class="h1"><h1>Welcome  Clerk <?php echo $this->session->userdata('FIRST_NAME')?></h1></div>
+	<div class="h1"><h1>Clerk <?php echo $this->session->userdata('FIRST_NAME')?></h1></div>
 	<div class="logout"><a href="<?php echo base_url('Login/logout')?>">LOGOUT</a></div>
 	<div class="p1"><p>Please choose the activity you would like to perform from the list below</p></div>
 	<div class=activities>
