@@ -68,10 +68,6 @@ class Login extends CI_Controller{
 		}
 		public function logout(){
 			$this->session->sess_destroy();
-<<<<<<< HEAD
-			redirect (base_url('login/logout'));
-=======
 			redirect (base_url('login'));
->>>>>>> c7824645cfadb3808d92a57445373d5d5a6bcc96
 		}
 	}

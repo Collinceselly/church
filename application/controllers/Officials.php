@@ -4,11 +4,8 @@ class Officials extends CI_Controller {
 
 function __construct() {
 parent::__construct();
-<<<<<<< HEAD
 $this->load->model('OfficialsModel');
-=======
-$this->load->model('officials_model');
->>>>>>> c7824645cfadb3808d92a57445373d5d5a6bcc96
+
 }
 function index() {
 //Including validation library
@@ -17,11 +14,8 @@ $this->load->library('form_validation');
 $this->form_validation->set_error_delimiters('<div class="error">', '</div>');
 
 //Validating Name Field
-<<<<<<< HEAD
 $this->form_validation->set_rules('idno', 'Id Card Number', 'is_unique[officials_records.ID_CARD_NUMBER]|required|min_length[7]|max_length[8]');
-=======
-$this->form_validation->set_rules('idno', 'Id Card Number', 'is_unique[officials.ID_CARD_NUMBER]|required|min_length[7]|max_length[8]');
->>>>>>> c7824645cfadb3808d92a57445373d5d5a6bcc96
+
 
 //Validating Email Field
 $this->form_validation->set_rules('fname', 'First Name', 'required');
@@ -55,7 +49,6 @@ $data = array(
 'FIRST_NAME' => $this->input->post('fname'),
 'OTHER_NAMES' => $this->input->post('oname'),
 'GENDER' => $this->input->post('gender'),
-<<<<<<< HEAD
 'RESPONSIBILITY' => $this->input->post('responsibility'),
 'PHONE_NUMBER' => $this->input->post('mobile'),
 'EMAIL_ADDRESS' => $this->input->post('email'),
@@ -63,12 +56,10 @@ $data = array(
 'MARITAL_STATUS' => $this->input->post('marital'),
 'OCCUPATION' => $this->input->post('occupation'),
 'RESIDENTIAL_ADDRESS' =>$this->post('residence'),
-=======
 'ROLE' => $this->input->post('role'),
 'PHONE_NUMBER' => $this->input->post('mobile'),
 'EMAIL_ADDRESS' => $this->input->post('email'),
-'PASSWORD' => sha1($this->input->post('password')),
->>>>>>> c7824645cfadb3808d92a57445373d5d5a6bcc96
+'PASSWORD' => sha1($this->input->post('password'))
 );
 
 //Transfering data to Model

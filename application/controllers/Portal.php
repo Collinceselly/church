@@ -19,23 +19,14 @@ class Portal extends CI_Controller
         $this->load->model('loginModel');
         $this->load->library('form_validation');
         $this->load->helper(array('form', 'url'));
-        
-<<<<<<< HEAD
-        self::$username = "";
-=======
+    
         self::$username = "collinsto";
->>>>>>> c7824645cfadb3808d92a57445373d5d5a6bcc96
-        // self::$password= "";
         self::$apikey = "e0ce12a49718ee1bb5f3ec6804580de2e5b4395ed782b914b847e145f4a36d3c";
     }
 
     public function index()
     {
-<<<<<<< HEAD
         $data['title'] = 'Portal| Home';
-=======
-        $data['title'] = 'Portal| Report';
->>>>>>> c7824645cfadb3808d92a57445373d5d5a6bcc96
         $this->load->view('portal/portal_home', $data);
     }
 
@@ -44,17 +35,16 @@ class Portal extends CI_Controller
         $username = $this->input->post('username');
         $password = sha1($this->input->post('password'));
 
-        $checklogin=$this->loginModel->loginUser($username, $password);
+        $checklogin=$this->loginModel->loginUser($username, $password);\
+
+        var_dump($checklogin);
 
         if ($checklogin) {
             $this->session->set_flashdata('account_succ', 'Successful Login');
-<<<<<<< HEAD
-            $this->session->set_userdata($checklogin);
-=======
+
             $this->session->set_userdata('user_details', $checklogin);
 
             redirect(base_url('port/Report/getMyContributions'));
->>>>>>> c7824645cfadb3808d92a57445373d5d5a6bcc96
         } else {
             $checkInactive = $this->loginModel->loginCheck($username, $password);
             if ($checkInactive) {
@@ -67,11 +57,7 @@ class Portal extends CI_Controller
                 $this->load->view('portal/set_password', $data);
             } else {
                 $this->session->set_flashdata('account_error', 'Create an Account with Us today');
-<<<<<<< HEAD
-                $data['title'] = 'Portal| Home';
-=======
                 $data['title'] = 'Portal| Report';
->>>>>>> c7824645cfadb3808d92a57445373d5d5a6bcc96
                 $this->load->view('portal/portal_home', $data);
             }
         }
@@ -166,13 +152,10 @@ class Portal extends CI_Controller
             $this->checkIfRandExists($phone_number);
         }
     }
-<<<<<<< HEAD
-=======
 
     public function logout()
     {
         $this->session->sess_destroy();
         redirect(base_url('Portal/index'));
     }
->>>>>>> c7824645cfadb3808d92a57445373d5d5a6bcc96
 }

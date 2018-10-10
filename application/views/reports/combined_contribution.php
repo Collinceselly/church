@@ -1,6 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Church</title>
+   <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/bootstrap.min.css') ?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/dataTables.min.css') ?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/bootstrap-theme.min.css') ?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/jquery-ui.css')?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/chartist.min.css')?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/dataTables.bootstrap.min.css')?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/jquery.dataTables.min.css')?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/buttons.dataTables.min.css')?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/bootstrap/css/bootstrap.min.css')?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/bootstrap/css/bootstrap-datetimepicker.min.css')?>">
+
+    <style type="text/css">
+  .container{
+    width: 1350px;
+  }
+  .search_button{
+    margin-left: 1000px;
+    margin-top: -20px;
+  }
+  .search1{
+    text-align: center;
+    color: #ffb3ff;
+  }
+  .gender{
+    text-align: right;
+    margin-right: 970px;
+  }
+  .R{
+    text-align: center;
+  }
+  .h1{
+    text-align: right;
+    align-content: center;
+    color: black;
+    font-weight: 25px;
+  }
+  .logout{
+    text-align: right;
+    font-size: 15px;
+    margin-right: 100px;
+    margin-top: 5px;
+  }
+  body{
+    background-color: #99ff99;
+  }
+  .modal {display:table;}
+
+  .ct-series-a .ct-bar {
+    /* Colour of your bars */
+    stroke: rgb(124,252,0);
+    /* The width of your bars */
+    stroke-width: 100px;
+  }
+
+  .ct-label {
+    font-size: 15px;
+    color: rgb(30,144,255);
+  }
+</style>
+</head>
+<body>
 <?php
-require_once __DIR__.'/../layout/header.php';
-echo '<div class="">';
 $total = 0;?>
 <div class="row"> 
 <?php if ($this->session->flashdata('success_msg')) {?>
@@ -15,15 +78,8 @@ $total = 0;?>
   </div>
 <?php } ?>
 
-<<<<<<< HEAD
 <div class="h1"><h3>Treasurer <?php echo $this->session->userdata('FIRST_NAME')?></h3></div>
 <div class="logout"><a href="<?php echo base_url('TemplateController/index')?>">LOGOUT</a></div>
-=======
-<style>
-  .modal {display:table;}
-  /*.body {display:table-cell; vertical-align:middle; text-align:center;}*/
-</style>
->>>>>>> c7824645cfadb3808d92a57445373d5d5a6bcc96
 
 <div class="col-lg-12 offset-lg-6">
    <p class="pull-right" style="padding-right: 3px;">
@@ -31,28 +87,17 @@ $total = 0;?>
     </p>
 
     <p class="pull-right" style="padding-right: 3px;">
-<<<<<<< HEAD
       <button type="button" class="btn btn-warning btn-sm" id="bt_by_month">By Month Range</button>
     </p>
 
     <p class="pull-right" style="padding-right: 3px;">
       <button type="button" class="btn btn-info btn-sm" id="bt_by_sabath_date">By Date Range</button>
     </p>
-    
-   
-</div>
-
-=======
-      <button type="button" class="btn btn-warning btn-sm" id="bt_by_month">By Month</button>
-    </p>
-
-    <p class="pull-right" style="padding-right: 3px;">
-      <button type="button" class="btn btn-info btn-sm" id="bt_by_sabath_date">By Date</button>
-    </p>
-    
     <p class="pull-right" style="padding-right: 3px;">
       <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#filterQuarter" id="bt_by_quarter">Quarterly</button>
     </p>
+</div>
+     
 </div>
 
   <!-- Modal -->
@@ -91,7 +136,7 @@ $total = 0;?>
             </div>
              <div class="form-group">
               <label for="user">Member Name:</label>
-              <input type="user" class="form-control" id="user" placeholder="Enter Name of User" name="user" required="required">
+              <input type="text" class="form-control" id="user" placeholder="Enter Name of User" name="user" required="required">
             </div>
             <button type="submit" class="btn btn-danger">Submit</button>
           </form>
@@ -104,8 +149,6 @@ $total = 0;?>
     </div>
   </div>
 
-
->>>>>>> c7824645cfadb3808d92a57445373d5d5a6bcc96
 <!-- search by Sabbath Date -->
 
 <div class="by_sabath_date">
@@ -144,7 +187,7 @@ $total = 0;?>
     </div>
     <div class="form-group">
       <label for="user">Member Name:</label>
-      <input type="user" class="form-control" id="user" placeholder="Enter Name of User" name="user" required="required">
+      <input type="text" class="form-control" id="user" placeholder="Enter Name of User" name="user" required="required">
     </div>
     <input type="submit" name="btnSave" class="btn btn-primary" value="Search"><br>
     <?php echo form_close();?>
@@ -187,7 +230,7 @@ $total = 0;?>
     </div>
     <div class="form-group">
       <label for="user">Member Name:</label>
-      <input type="user" class="form-control" id="userm" placeholder="Enter Name of User" name="user" required="required">
+      <input type="text" class="form-control" id="userm" placeholder="Enter Name of User" name="user" required="required">
     </div>
     <input type="submit" name="btnSave" class="btn btn-primary" value="Search"><br>
     <?php echo form_close();?>
@@ -231,7 +274,7 @@ $total = 0;?>
     </div>
     <div class="form-group">
       <label for="user">Member Name:</label>
-      <input type="user" class="form-control" id="usery" placeholder="Enter Name of User" name="user" required="required">
+      <input type="text" class="form-control" id="usery" placeholder="Enter Name of User" name="user" required="required">
     </div>
     <input type="submit" name="btnSave" class="btn btn-primary" value="Search"><br>
     <?php echo form_close();?>
@@ -291,6 +334,24 @@ $total = 0;?>
   </div>
 <?php } ?>
 
+<script src="<?php echo base_url('assets/js/jquery-3.3.1.min.js')?>"></script>
+<script src="<?php echo base_url('assets/js/bootstrap.min.js') ?>"></script>
+<script src="<?php echo base_url('assets/jquery/jquery-1.12.4.js') ?>"></script>
+<script src="<?php echo base_url('assets/js/jquery-ui.js')?>"></script>
+<script src="<?php echo base_url('assets/jquery/jquery.mask.min.js') ?>"></script>
+<script src="<?php echo base_url('assets/js/chartist.min.js') ?>"></script>
+<script type="text/javascript" src="<?php echo base_url('assets/js/moment.js') ?>"></script>
+<script type="text/javascript" src="<?php echo base_url('assets/js/jquery.dataTables.min.js')?>"></script>
+<script type="text/javascript" src="<?php echo base_url('assets/bootstrap/js/bootstrap.min.js')?>"></script>
+<script type="text/javascript" src="<?php echo base_url('assets/bootstrap/js/bootstrap-datetimepicker.js')?>"></script>
+
+<script type="text/javascript" src="<?php echo base_url('assets/js/dataTables.buttons.min.js')?>"></script>
+<script type="text/javascript" src="<?php echo base_url('assets/js/buttons.flash.min.js')?>"></script>
+<script type="text/javascript" src="<?php echo base_url('assets/js/jszip.min.js')?>"></script>
+<script type="text/javascript" src="<?php echo base_url('assets/js/pdfmake.min.js')?>"></script>
+<script type="text/javascript" src="<?php echo base_url('assets/js/vfs_fonts.js')?>"></script>
+<script type="text/javascript" src="<?php echo base_url('assets/js/buttons.html5.min.js')?>"></script>
+<script type="text/javascript" src="<?php echo base_url('assets/js/buttons.print.min.js')?>"></script>
 
 <script>
     $(document).ready(function () {
@@ -329,12 +390,12 @@ $total = 0;?>
         datatype: 'json'
       });
       srvRqst.done(function (response) {
-        var dataSource = $.parseJSON(response);
-        console.log(dataSource);
-        $("#user").autocomplete({
-          source: dataSource
+          var dataSource = $.parseJSON(response);
+          console.log(dataSource);
+          $("#user").autocomplete({
+            source: dataSource
+          });
         });
-      });
 
       $("#bt_by_sabath_date").click(function(){
           $("div.by_sabath_date").show();
@@ -349,7 +410,7 @@ $total = 0;?>
         });
         srvRqst.done(function (response) {
           var dataSource = $.parseJSON(response);
-          //console.log(dataSource);
+          console.log(dataSource);
           $("#user").autocomplete({
             source: dataSource
           });
@@ -443,20 +504,31 @@ $total = 0;?>
   });
   </script>
 
-  <style type="text/css">
-    .ct-series-a .ct-bar {
-      /* Colour of your bars */
-      stroke: rgb(124,252,0);
-      /* The width of your bars */
-      stroke-width: 100px;
-    }
+  <script type="text/javascript">
+  $(document).ready(function () {
+  let srvRqst = $.ajax({
+          url: '<?php echo base_url("reports/individualTithesReport/getAllMembers");?>',
+          data: {},
+          type: 'post',
+          datatype: 'json'
+      });
+      srvRqst.done(function (response) {
+          var dataSource = $.parseJSON(response);
 
-    .ct-label {
-      font-size: 15px;
-      color: rgb(30,144,255);
-    }
+          $("#user").autocomplete({
+              source: dataSource
+          });
+      });
 
-</style>
+  $('#all_contributions_table').DataTable({
+      dom: 'Bfrtip',
+        buttons: [
+            'copy', 'csv', 'excel', 'pdf', 'print'
+        ]
+    });
+});  
+</script>
 <?php } ?>
+</body>
+</html>
 
-<?php require_once __DIR__.'/../layout/footer.php';?>

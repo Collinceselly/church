@@ -4,10 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class GivingsModel extends CI_Model{
 	public function getMembers(){
 		$query = $this->db->get('adults_members_records');
-<<<<<<< HEAD
 		$this->db->order_by('FIRST_NAME', 'ASC');
-=======
->>>>>>> c7824645cfadb3808d92a57445373d5d5a6bcc96
 		if($query->num_rows() > 0){
 			return $query->result();
 		}else{

@@ -10,12 +10,9 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <style type="text/css">
-<<<<<<< HEAD
 body{
 	background-color: #99ff99;
 }
-=======
->>>>>>> c7824645cfadb3808d92a57445373d5d5a6bcc96
 	.h1{
 		text-align: center;
 		align-content: center;
@@ -89,7 +86,6 @@ body{
 .pos{
 	text-align: center;
 }
-<<<<<<< HEAD
 .h1{
 	text-align: right;
 		align-content: center;
@@ -108,22 +104,10 @@ body{
   <div class="dropdown-content">
     <a href="<?php echo base_url('reports/individualTithesReport/viewContributions'); ?>">ALL CONTIRBUTIONS</a>
     <a href="<?php echo base_url('reports/individualTithesReport/viewTithes'); ?>">SPECIFIC CONTRIBUTIONS TYPE</a>
-=======
-</style>
-<body>
-	<a href="<?php echo base_url('clerk/visitors_controller/index'); ?>" class="btn btn-primary">Back</a>
-	<div class="p1"><p>Choose the report creterion from the dropdown</p></div>
-<div class="pos">
-	<div class="dropdown"><br>
-  <div class="members_record"><button class="btn btn-primary">WHEN</button></div>
-  <div class="dropdown-content">
-    <a href="<?php echo base_url('reports/individualTithesReport/viewContributions'); ?>">ALL CONTIRBUTIONS</a>
-    <a href="<?php echo base_url('reports/individualTithesReport/viewTithes'); ?>">PER CONTRIBUTIONS</a>
->>>>>>> c7824645cfadb3808d92a57445373d5d5a6bcc96
+    <a href="<?php echo base_url('reports/individualTithesReport/getChurchContribution'); ?>">GENERAL CHURCH CONTRIBUTIONS REPORT</a>
    <!--  <a href="<?php //echo base_url('reports/individualTithesReport/selectMonth'); ?>">MONTHLY REPORT</a>
     <a href="<?php //echo base_url('reports/individualTithesReport/selectQuater'); ?>">QUATER REPORT</a>
     <a href="<?php //echo base_url('reports/individualTithesReport/selectYear'); ?>">ANNUAL</a> -->
-  </div>
 </div><br>
 </div>
 

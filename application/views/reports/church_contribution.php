@@ -60,7 +60,7 @@ $total = 0;
 					<h4 class="modal-title">Filter By Quarter</h4>
 				</div>
 				<div class="modal-body">
-					<form class="form-horizontal" action="<?php base_url('port/report/viewAllContributions')?>" method="post">
+					<form class="form-horizontal" action="<?php base_url('reports/individualTithesReport/getChurchContribution')?>" method="post">
 						<div class="row control-group">
 							<div class="form-group col-xs-12 floating-label-form-group controls">
 								<label for="quarter">Select Quarter:</label>
@@ -88,7 +88,7 @@ $total = 0;
 	<div class="by_sabath_date">
 		<?php $attributes = array('class' => 'form-inline', 'id' => 'sabbath_date_form');?>
 
-		<?php echo form_open('port/report/viewAllContributions', $attributes); ?>
+		<?php echo form_open('reports/individualTithesReport/getChurchContribution', $attributes); ?>
 		<div class="form-group">
 			<div class="form-group">
 				<label for="date_sabbath" class="col-md-2 control-label">FROM: </label>&nbsp;&nbsp;
@@ -116,7 +116,7 @@ $total = 0;
 	<!-- search by month and year -->
 	<div class="by_month">
 		<?php $attributes = array('class' => 'form-inline', 'id' => 'monthly_form');?>
-		<?php echo form_open('port/report/viewAllContributions', $attributes); ?>
+		<?php echo form_open('reports/individualTithesReport/getChurchContribution', $attributes); ?>
 		<div class="form-group">
 			<div class="form-group">
 				<label for="date_monthly" class="col-md-2 control-label">FROM: </label>&nbsp;&nbsp;
@@ -145,7 +145,7 @@ $total = 0;
 	<!-- search by Year -->
 	<div class="by_year">
 		<?php $attributes = array('class' => 'form-inline', 'id' => 'year_form');?>
-		<?php echo form_open('port/report/viewAllContributions', $attributes); ?>
+		<?php echo form_open('reports/individualTithesReport/getChurchContribution', $attributes); ?>
 		<div class="form-group">
 			<div class="form-group">
 				<label for="date_yearly" class="col-md-2 control-label">FROM: </label>&nbsp;&nbsp;
@@ -182,7 +182,6 @@ $total = 0;
 					<table class="table table-condensed" id="all_contributions_table">
 						<thead>
 						<tr>
-							<th>NAME</th>
 							<th>RECORDING DATE</th>
 							<th>TITHES</th>
 							<th>COMBINED OFFERING</th>
@@ -200,7 +199,6 @@ $total = 0;
 								$total += ($searchUsers->TITHES + $searchUsers->COMBINED_OFFERING +  $searchUsers->CAMP_OFFERING + $searchUsers->CHURCH_BUILDING + $searchUsers->CONFERENCE + $searchUsers->LOCAL_CHURCH + $searchUsers->STATION_DEVELOPMENT);
 								?>
 								<tr>
-									<td><?php echo $searchUsers->NAME; ?></td>
 									<td><?php echo Date($searchUsers->SABBATH_DATE);?></td>
 									<td><?php echo number_format($searchUsers->TITHES, 2);?></td>
 									<td><?php echo number_format($searchUsers->COMBINED_OFFERING, 2);?></td>
@@ -218,7 +216,6 @@ $total = 0;
 						<tfoot>
 						<tr>
 							<th>TOTAL</th>
-							<th></th>
 							<th></th>
 							<th></th>
 							<th></th>

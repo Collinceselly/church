@@ -7,7 +7,6 @@
 require_once __DIR__.'/../layout/header.php';
 echo '<div class="container">';?>
 <div class="rows">
-<<<<<<< HEAD
 	<div class="h1"><h3>Treasurer <?php echo $this->session->userdata('FIRST_NAME')?></h3></div>
 	<div class="logout"><a href="<?php echo base_url('TemplateController/index')?>">LOGOUT</a></div>
 			<div class="col-md-2"><a href="<?php echo base_url('finance/givings/getMembers'); ?>" class="btn btn-primary">Back</a></div>
@@ -16,28 +15,13 @@ echo '<div class="container">';?>
 										echo "<p class='alert alert-danger'>" . $this->session->flashdata('account_error') . "</p>";
 								endif
 					?>
-=======
-			<div class="col-md-2"><a href="<?php echo base_url('finance/givings/getMembers'); ?>" class="btn btn-primary">Back</a></div>
-			<div class="col-md-10">
-					<?php if ($this->session->flashdata('success_msg')):
-										echo "<p class='alert alert-danger'>" . $this->session->flashdata('success_msg') . "</p>";
-								endif
-					?>
-				<?php if ($this->session->flashdata('error_msg')):
-					echo "<p class='alert alert-danger'>" . $this->session->flashdata('error_msg') . "</p>";
-				endif
-				?>
->>>>>>> c7824645cfadb3808d92a57445373d5d5a6bcc96
 					<span id="notifications"></span>
 			</div>
 <div class="col-md-12">
 			<form action="#" method="post" id="givingsForm" class="form-horizontal">
 					<div class="col-md-5">
-<<<<<<< HEAD
 					<h3>Member information</h3>
-=======
-					<h3>Members Details</h3>
->>>>>>> c7824645cfadb3808d92a57445373d5d5a6bcc96
+				
 					<input type="hidden" name="text_hidden" value="<?php echo $members->ID;?>" >
 					<div class ="form-group">
 						<label for="fname" class="class-md-2 text-right">ID Card Number</label>
@@ -71,11 +55,9 @@ echo '<div class="container">';?>
 					</div>
 				</div>
 				<div class="col-md-7">
-<<<<<<< HEAD
           <h3>Givings and Offerings in KShs</h3>
-=======
-          <h3>Add Offerings in KShs</h3>
->>>>>>> c7824645cfadb3808d92a57445373d5d5a6bcc96
+
+         
 					<div class ="form-group">
 						<label for="cfname" class="class-md-2 text-right">Sabbath date</label>
 						<div class="col-md-3">
@@ -181,11 +163,6 @@ echo '<div class="container">';?>
               let text_date = {'text_date': $('#text_date').val()};
               let text_user = {'text_user': $('#text_user').val()};
               let today = moment().format('YYYY-MM-DD');
-<<<<<<< HEAD
-              console.log(today);
-              console.log($('#text_date').val());
-=======
->>>>>>> c7824645cfadb3808d92a57445373d5d5a6bcc96
               if ($('#text_date').val() <= today){
 	              $.ajax({
 	              	url: '<?php echo base_url("finance/givings/checkRecord"); ?>',
@@ -200,11 +177,7 @@ echo '<div class="container">';?>
 	              			document.getElementById("notifications").innerHTML="<p class='alert alert-danger'>Record With that date already exists for " + $("#text_fname").val().toUpperCase() + " "+ "</p>";
 	              		} else if (response.status == 0) {
 	              			$.post('<?php echo base_url("finance/givings/submitRecord") ?>', $('form#givingsForm').serialize(), function (data) {
-<<<<<<< HEAD
-	                        location.reload();
-=======
 	                        location.assign("<?php echo base_url('finance/givings/getMembers');?>");
->>>>>>> c7824645cfadb3808d92a57445373d5d5a6bcc96
 	                    });
 	              		}
 	              	}

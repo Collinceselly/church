@@ -15,14 +15,11 @@ $total = 0;?>
   </div>
 <?php } ?>
 
-<<<<<<< HEAD
-=======
 <style>
   .modal {display:table;}
   /*.body {display:table-cell; vertical-align:middle; text-align:center;}*/
 </style>
 
->>>>>>> c7824645cfadb3808d92a57445373d5d5a6bcc96
 <div class="col-lg-12 offset-lg-6">
    <p class="pull-right" style="padding-right: 3px;">
       <button type="button" class="btn btn-danger btn-sm" id="bt_by_year">By Year</button>
@@ -35,12 +32,6 @@ $total = 0;?>
     <p class="pull-right" style="padding-right: 3px;">
       <button type="button" class="btn btn-info btn-sm" id="bt_by_sabath_date">By Date</button>
     </p>
-<<<<<<< HEAD
-    
-   
-</div>
-
-=======
     <p class="pull-right" style="padding-right: 3px;">
       <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#filterQuarter" id="bt_by_quarter">Quarterly</button>
     </p>
@@ -82,7 +73,6 @@ $total = 0;?>
     </div>
   </div>
 
->>>>>>> c7824645cfadb3808d92a57445373d5d5a6bcc96
 <!-- search by Sabbath Date -->
 
 <div class="by_sabath_date">
@@ -293,11 +283,7 @@ $total = 0;?>
         var dataSource = $.parseJSON(response);
         console.log(dataSource);
         $("#user").autocomplete({
-<<<<<<< HEAD
-          source: dataSource
-=======
           source: dataSource,
->>>>>>> c7824645cfadb3808d92a57445373d5d5a6bcc96
         });
       });
 

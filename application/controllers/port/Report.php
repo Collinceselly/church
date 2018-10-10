@@ -20,6 +20,7 @@ class Report extends CI_Controller {
 
 	public function viewAllContributions()
 	{
+		$currentQuarter = Report::getCurrentQuater();
 		$results = array();
 		if (isset($_POST['date_sabbath']) && isset($_POST['date_sabbath2'])) {
 			if ($this->input->post('by_date') == 'by_date') {
@@ -47,8 +48,6 @@ class Report extends CI_Controller {
 
 			if ($this->input->post('quarter_selection')) {
 				$currentQuarter = Report::getCurrentQuater($this->input->post('quarter_selection'));
-			} else {
-				$currentQuarter = Report::getCurrentQuater();
 			}
 			foreach ($_SESSION['user_details'] as $user_detail) {
 				$results = $this->report_model->MemberTithes($user_detail->ID, $currentQuarter['date1'], $currentQuarter['date2']);
