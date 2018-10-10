@@ -9,6 +9,7 @@
 </head>
 <style type="text/css">
 body{
+<<<<<<< HEAD
 	background-color: #99ff99;
 	/* background-image: url("assets/images/sda logo4.jpg");*/
 }
@@ -17,6 +18,14 @@ body{
 		align-content: center;
 		color: black;
 		font-weight: 25px;
+=======
+	background-color: #e6fffa;
+}
+	.h1{
+		text-align: center;
+		align-content: center;
+		color: green;
+>>>>>>> c7824645cfadb3808d92a57445373d5d5a6bcc96
 	}
 	.logout{
 		text-align: right;
@@ -26,7 +35,11 @@ body{
 	}
 	.p1{
 		text-align: center;
+<<<<<<< HEAD
 		margin-top: 100px;
+=======
+		margin-top: -5px;
+>>>>>>> c7824645cfadb3808d92a57445373d5d5a6bcc96
 		font-size: 25px;
 	}
 	.activities{
@@ -34,11 +47,18 @@ body{
 		border-radius: 20px;
 	}
 	div.activities{
+<<<<<<< HEAD
 		height: 105px;
 		width: 300px;
 		margin-left: 550px;
 		text-align: center;
 		margin-top: 30px;
+=======
+		height: 350px;
+		width: 700px;
+		margin-left: 350px;
+		text-align: center;
+>>>>>>> c7824645cfadb3808d92a57445373d5d5a6bcc96
 
 	}
 		.dropbtn {
@@ -89,6 +109,9 @@ body{
 	<div class="h1"><h3>Treasurer <?php echo $this->session->userdata('FIRST_NAME')?></h3></div>
 	<div class="logout"><a href="<?php echo base_url('TemplateController/index')?>">LOGOUT</a></div>
 	<div class="p1"><p>choose activity</p></div>
+	<div class="h1"><h1>Welcome  Treasurer <?php echo $this->session->userdata('FIRST_NAME')?></h1></div>
+	<div class="logout"><a href="<?php echo base_url('Login/logout')?>">LOGOUT</a></div>
+	<div class="p1"><p>Please choose the activity you would like to perform from the list below</p></div>
 	<div class=activities>
 <!--<div class="dropdown"><br>
   <div class="members_record"><button class="btn btn-primary">MEMBERS RECORDS</button></div>
@@ -99,12 +122,16 @@ body{
   </div>
 </div><br>-->
 
-
 <div class="members_record"><a href="<?php echo base_url('finance/givings/index'); ?>" class="btn btn-primary">TITHES AND OFFERINGS</a><br></div>
 <div class="members_record"><a href="<?php echo base_url('reports/individualTithesReport/selectType'); ?>" class="btn btn-primary">FINANCIAL REPORT</a><br></div>
 <!--<div class="members_record"><a href="<?php echo base_url('trial/add'); ?>" class="btn btn-primary">BOOKING AND PAYMENT OF HIRED CHURCH FACILITIES</a><br></div>
 <div class="members_record"><a href="<?php echo base_url('trial/add'); ?>" class="btn btn-primary">REPORT TO THE CONFERENCE</a><br></div>
 		</div>-->
+<div class="members_record"><a href="<?php echo base_url('finance/givings/index'); ?>" class="btn btn-primary">PERSONAL AND CORPERATE GIVINGS</a><br></div>
+<div class="members_record"><a href="<?php echo base_url('reports/individualTithesReport/selectType'); ?>" class="btn btn-primary">CHURCH MEMBERS FINANCIAL REPORT</a><br></div>
+<div class="members_record"><a href="<?php echo base_url('trial/add'); ?>" class="btn btn-primary">BOOKING AND PAYMENT OF HIRED CHURCH FACILITIES</a><br></div>
+<div class="members_record"><a href="<?php echo base_url('trial/add'); ?>" class="btn btn-primary">REPORT TO THE CONFERENCE</a><br></div>
+		</div>
 	</div>
 </body>
 </html>

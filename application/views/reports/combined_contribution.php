@@ -15,8 +15,15 @@ $total = 0;?>
   </div>
 <?php } ?>
 
+<<<<<<< HEAD
 <div class="h1"><h3>Treasurer <?php echo $this->session->userdata('FIRST_NAME')?></h3></div>
 <div class="logout"><a href="<?php echo base_url('TemplateController/index')?>">LOGOUT</a></div>
+=======
+<style>
+  .modal {display:table;}
+  /*.body {display:table-cell; vertical-align:middle; text-align:center;}*/
+</style>
+>>>>>>> c7824645cfadb3808d92a57445373d5d5a6bcc96
 
 <div class="col-lg-12 offset-lg-6">
    <p class="pull-right" style="padding-right: 3px;">
@@ -24,6 +31,7 @@ $total = 0;?>
     </p>
 
     <p class="pull-right" style="padding-right: 3px;">
+<<<<<<< HEAD
       <button type="button" class="btn btn-warning btn-sm" id="bt_by_month">By Month Range</button>
     </p>
 
@@ -34,6 +42,70 @@ $total = 0;?>
    
 </div>
 
+=======
+      <button type="button" class="btn btn-warning btn-sm" id="bt_by_month">By Month</button>
+    </p>
+
+    <p class="pull-right" style="padding-right: 3px;">
+      <button type="button" class="btn btn-info btn-sm" id="bt_by_sabath_date">By Date</button>
+    </p>
+    
+    <p class="pull-right" style="padding-right: 3px;">
+      <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#filterQuarter" id="bt_by_quarter">Quarterly</button>
+    </p>
+</div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="filterQuarter" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Filter By Quarter</h4>
+        </div>
+        <div class="modal-body">
+          <form class="form-horizontal" action="<?php base_url('reports/individualTithesReport/viewTithes')?>" method="post">
+            <div class="row control-group">
+              <div class="form-group col-xs-12 floating-label-form-group controls">
+                <label for="quarter">Select Quarter:</label>
+                <select class="form-control" name="quarter_selection">
+                  <option value="first_quarter">First Quarter</option>
+                  <option value="second_quarter">Second Quarter</option>
+                  <option value="third_quarter">Third Quarter</option>
+                </select>
+              </div>
+            </div>
+
+             <div class="form-group">
+              <label for="report">Report Type</label>
+              <select class="form-control" name="report_type">
+                <option value="tithes">TITHES</option>
+                <option value="combined_offering">COMBINED OFFERING</option>
+                <option value="church_building">CHURCH BUILDING</option>
+                <option value="conference">CONFERENCE</option>
+                <option value="local_church">LOCAL CHURCH</option>
+                <option value="station_development">STATION DEVELOPMENT</option>
+              </select>
+            </div>
+             <div class="form-group">
+              <label for="user">Member Name:</label>
+              <input type="user" class="form-control" id="user" placeholder="Enter Name of User" name="user" required="required">
+            </div>
+            <button type="submit" class="btn btn-danger">Submit</button>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+>>>>>>> c7824645cfadb3808d92a57445373d5d5a6bcc96
 <!-- search by Sabbath Date -->
 
 <div class="by_sabath_date">

@@ -8,7 +8,11 @@ class Search extends CI_Controller{
 
 		$this->load->helper('url');
 		$this->load->helper('form');
+<<<<<<< HEAD
 		$this->load->model('clerk/SearchModel');
+=======
+		$this->load->model('clerk/search_model');
+>>>>>>> c7824645cfadb3808d92a57445373d5d5a6bcc96
 		$this->load->library('session');
 
 }
@@ -23,7 +27,11 @@ class Search extends CI_Controller{
 		$user = $this->input->post('idno');
 		if($user != ""){
 
+<<<<<<< HEAD
 			$result = $this->SearchModel->search($user);
+=======
+			$result = $this->search_model->search($user);
+>>>>>>> c7824645cfadb3808d92a57445373d5d5a6bcc96
 			//$this->load->view('search_view');
 			//print_r($result);
 
@@ -40,7 +48,11 @@ class Search extends CI_Controller{
 				$data['result_display'] = "No record found";
 				//$this->session->set_flashdata('error_msg', 'Fail to update records');
 				//redirect(base_url('search_controller/index'));
+<<<<<<< HEAD
 				print('No records found for the entered details');
+=======
+				print('The ID Number Entered is was no found');
+>>>>>>> c7824645cfadb3808d92a57445373d5d5a6bcc96
 
 				
 			}
@@ -52,7 +64,11 @@ class Search extends CI_Controller{
 		else{
 
 			//$data = array('id_error_message'=>"ID Field is required");
+<<<<<<< HEAD
 			print('The field is required for search');
+=======
+			print('ID Number Field is required to search');
+>>>>>>> c7824645cfadb3808d92a57445373d5d5a6bcc96
 		}
 
 	}

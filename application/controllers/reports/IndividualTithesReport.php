@@ -75,10 +75,18 @@ class IndividualTithesReport extends CI_Controller
         if (isset($_POST['user'])) {
             $result = $this->report_model->viewMonthly($user, $date_month1, $date_month2, $report_type);
             $member = array();
+<<<<<<< HEAD
             foreach ($result as $key => $value) {
                 $member[$value->SABBATH_DATE] = $value->$report_type;
             }
             if ($result) {
+=======
+			if ($result) {
+            foreach ($result as $key => $value) {
+                $member[$value->SABBATH_DATE] = $value->$report_type;
+            }
+
+>>>>>>> c7824645cfadb3808d92a57445373d5d5a6bcc96
                 $data['result'] = $result;
                 $data['memberstat'] = $member;
                 $data['contribution_type'] = $report_type;
@@ -137,14 +145,26 @@ class IndividualTithesReport extends CI_Controller
         $user = $this->input->post('user');
         $date2 = $this->input->post('date_sabbath2');
         $report_type = strtoupper($this->input->post('report_type'));
+<<<<<<< HEAD
         
         $member = array();
+=======
+        $member = array();
+        if ($this->input->post('quarter_selection')) {
+            $currentQuarter = IndividualTithesReport::getCurrentQuater($this->input->post('quarter_selection'));
+            $date = $currentQuarter['date1'];
+            $date2 = $currentQuarter['date2'];
+        }
+
+       
+>>>>>>> c7824645cfadb3808d92a57445373d5d5a6bcc96
         if (isset($_POST['user'])) {
             $result = $this->report_model->viewMemberTithes($user, $date, $date2);
             if ($result) {
                 foreach ($result as $key => $value) {
                     $member[$value->SABBATH_DATE] = $value->$report_type;
                 }
+<<<<<<< HEAD
                 if ($result) {
                     $data['result'] = $result;
                     $data['memberstat'] = $member;
@@ -157,6 +177,18 @@ class IndividualTithesReport extends CI_Controller
                     $this->session->set_flashdata('report_missing', 'No Record Found For Such User');
                     $this->load->view('reports/combined_contribution', $data);
                 }
+=======
+                $data['result'] = $result;
+                $data['memberstat'] = $member;
+                $data['contribution_type'] = $report_type;
+                $this->load->view('reports/combined_contribution', $data);
+            } else {
+                $data['result'] = array();
+                $data['result_display'] = "No record found";
+                $data['contribution_type'] = "";
+                $this->session->set_flashdata('report_missing', 'No Record Found For Such User');
+                $this->load->view('reports/combined_contribution', $data);
+>>>>>>> c7824645cfadb3808d92a57445373d5d5a6bcc96
             }
         } else {
             $data['result'] = array();
@@ -167,12 +199,25 @@ class IndividualTithesReport extends CI_Controller
 
     public function viewContributions()
     {
+<<<<<<< HEAD
         
         $date = $this->input->post('date_sabbath');
         $user = $this->input->post('user');
         $date2 = $this->input->post('date_sabbath2');
         $member = array();
         if (isset($_POST['user'])) {
+=======
+        $member = array();
+        $date = $this->input->post('date_sabbath');
+        $user = $this->input->post('user');
+        $date2 = $this->input->post('date_sabbath2');
+        if ($this->input->post('quarter_selection')) {
+            $currentQuarter = IndividualTithesReport::getCurrentQuater($this->input->post('quarter_selection'));
+            $date = $currentQuarter['date1'];
+            $date2 = $currentQuarter['date2'];
+        }
+        if (isset($user) && !empty($user)) {
+>>>>>>> c7824645cfadb3808d92a57445373d5d5a6bcc96
             $result = $this->report_model->viewContributionsDate($user, $date, $date2);
             if ($result) {
                 $member['TITHES'] = 0;
@@ -191,6 +236,7 @@ class IndividualTithesReport extends CI_Controller
                     $member['LOCAL_CHURCH'] += (!empty($value['LOCAL_CHURCH'])) ? $value['LOCAL_CHURCH'] : 0 ;
                     $member['STATION_DEVELOPMENT'] += (!empty($value['STATION_DEVELOPMENT'])) ? $value['STATION_DEVELOPMENT'] : 0 ;
                 }
+<<<<<<< HEAD
 
                 if ($result) {
                     $data['result'] = $result;
@@ -205,6 +251,19 @@ class IndividualTithesReport extends CI_Controller
                     $this->load->view('reports/all_contributions', $data);
                 }
             }
+=======
+				$data['result'] = $result;
+				$data['memberstat'] = $member;
+				$data['contribution_type'] = "";
+				$this->load->view('reports/all_contributions', $data);
+			} else {
+				$data['result'] = array();
+				$data['result_display'] = "No record found";
+				$data['contribution_type'] = "";
+				$this->session->set_flashdata('report_missing', 'No Record Found For Such User');
+				$this->load->view('reports/all_contributions', $data);
+			}
+>>>>>>> c7824645cfadb3808d92a57445373d5d5a6bcc96
         } else {
             $data['result'] = array();
             $data['memberstat'] = array();
@@ -214,7 +273,10 @@ class IndividualTithesReport extends CI_Controller
 
     public function viewContributionsMonthly()
     {
+<<<<<<< HEAD
         
+=======
+>>>>>>> c7824645cfadb3808d92a57445373d5d5a6bcc96
         $date = $this->input->post('date_monthly');
         $user = $this->input->post('user');
         $date2 = $this->input->post('date_monthly2');
@@ -238,6 +300,7 @@ class IndividualTithesReport extends CI_Controller
                     $member['LOCAL_CHURCH'] += (!empty($value['LOCAL_CHURCH'])) ? $value['LOCAL_CHURCH'] : 0 ;
                     $member['STATION_DEVELOPMENT'] += (!empty($value['STATION_DEVELOPMENT'])) ? $value['STATION_DEVELOPMENT'] : 0 ;
                 }
+<<<<<<< HEAD
 
                 if ($result) {
                     $data['result'] = $result;
@@ -252,6 +315,20 @@ class IndividualTithesReport extends CI_Controller
                     $this->load->view('reports/all_contributions', $data);
                 }
             }
+=======
+				$data['result'] = $result;
+				$data['memberstat'] = $member;
+				$data['contribution_type'] = "";
+				$this->load->view('reports/all_contributions', $data);
+			} else {
+				$data['result'] = array();
+				$data['result_display'] = "No record found";
+				$data['contribution_type'] = "";
+				$this->session->set_flashdata('report_missing', 'No Record Found For Such User');
+				$this->load->view('reports/all_contributions', $data);
+			}
+
+>>>>>>> c7824645cfadb3808d92a57445373d5d5a6bcc96
         } else {
             $data['result'] = array();
             $data['memberstat'] = array();
@@ -286,6 +363,7 @@ class IndividualTithesReport extends CI_Controller
                     $member['STATION_DEVELOPMENT'] += (!empty($value['STATION_DEVELOPMENT'])) ? $value['STATION_DEVELOPMENT'] : 0 ;
                 }
 
+<<<<<<< HEAD
                 if ($result) {
                     $data['result'] = $result;
                     $data['memberstat'] = $member;
@@ -298,6 +376,18 @@ class IndividualTithesReport extends CI_Controller
                     $this->session->set_flashdata('report_missing', 'No Record Found For Such User');
                     $this->load->view('reports/all_contributions', $data);
                 }
+=======
+				$data['result'] = $result;
+				$data['memberstat'] = $member;
+				$data['contribution_type'] = "";
+				$this->load->view('reports/all_contributions', $data);
+			} else {
+				$data['result'] = array();
+				$data['result_display'] = "No record found";
+				$data['contribution_type'] = "";
+				$this->session->set_flashdata('report_missing', 'No Record Found For Such User');
+				$this->load->view('reports/all_contributions', $data);
+>>>>>>> c7824645cfadb3808d92a57445373d5d5a6bcc96
             }
         } else {
             $data['result'] = array();
@@ -408,4 +498,20 @@ class IndividualTithesReport extends CI_Controller
         }
         echo json_encode($members, true);
     }
+<<<<<<< HEAD
+=======
+
+    public static function getCurrentQuater($quarter_selection = '')
+    {
+        if (date("m") === '01' || date("m") === '02' || date("m") === '03' || date("m") === '04' || $quarter_selection == "first_quarter") {
+            return array('date1' => date("Y") .'-01-01', 'date2' => date("Y"). '-04-30', "quarter" => 1);
+        }
+        if (date("m") === '05' || date("m") === '06' || date("m") === '07' || date("m") === '08' || $quarter_selection == "second_quarter") {
+            return array('date1' => date("Y") .'-05-01', 'date2' => date("Y"). '-08-31', "quarter" => 2);
+        }
+        if (date("m") === '09' || date("m") === '10' || date("m") === '11' || date("m") === '12' || $quarter_selection == "third_quarter") {
+            return array('date1' => date("Y") .'-09-01', 'date2' => date("Y"). '-12-31', "quarter" => 3);
+        }
+    }
+>>>>>>> c7824645cfadb3808d92a57445373d5d5a6bcc96
 }
